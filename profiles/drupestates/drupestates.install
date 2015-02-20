@@ -11,7 +11,7 @@
  *
  * @see system_install()
  */
-function drupstates_install() {
+function drupestates_install() {
   // Add text formats.
   $filtered_html_format = array(
     'format' => 'filtered_html',
@@ -427,6 +427,6 @@ function drupstates_install() {
     ->condition('type', 'theme')
     ->condition('name', 'seven')
     ->execute();
-  variable_set('admin_theme', 'seven');
+  variable_set('admin_theme', 'rubik');
   variable_set('node_admin_theme', '1');
 }
