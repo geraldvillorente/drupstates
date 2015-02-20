@@ -22,3 +22,27 @@ dependencies[] = overlay
 dependencies[] = field_ui
 dependencies[] = file
 dependencies[] = rdf
+
+; Contributed modules
+dependencies[] = admin
+dependencies[] = ctools
+dependencies[] = entity
+dependencies[] = context
+dependencies[] = context_ui
+dependencies[] = date_api
+dependencies[] = date
+dependencies[] = features
+dependencies[] = nodequeue
+dependencies[] = diff
+dependencies[] = libraries
+dependencies[] = token
+dependencies[] = pathauto
+dependencies[] = strongarm
+dependencies[] = metatag
+dependencies[] = googleanalytics
+dependencies[] = jquery_update
+dependencies[] = ckeditor
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = views_slideshow
+dependencies[] = xmlsitemap
