@@ -7363,14 +7363,20 @@ a.th {
   display: inline-block;
 }
 
-/* line 1, ../scss/_style.scss */
+/* global */
+/* line 2, ../scss/_style.scss */
 body {
   position: absolute;
   height: 100%;
   width: 100%;
 }
 
-/* line 10, ../scss/_style.scss */
+/* line 8, ../scss/_style.scss */
+.clear-both {
+  clear: both;
+}
+
+/* line 12, ../scss/_style.scss */
 .blurred-bg {
   position: absolute;
   width: 100%;
@@ -7379,14 +7385,15 @@ body {
   background-size: cover;
 }
 
-/* line 18, ../scss/_style.scss */
+/* login page */
+/* line 21, ../scss/_style.scss */
 .login-form .content {
   position: absolute;
   width: 100%;
   margin-top: 10%;
 }
 
-/* line 24, ../scss/_style.scss */
+/* line 27, ../scss/_style.scss */
 .login-form .fields {
   background: #fff;
   padding: 25px 25px 0px 25px;
@@ -7394,7 +7401,48 @@ body {
   box-shadow: 0px 0px 25px #444;
 }
 
-/* line 31, ../scss/_style.scss */
+/* line 34, ../scss/_style.scss */
 .login-form form {
   padding-top: 10px;
+}
+
+/* line 38, ../scss/_style.scss */
+.login-form button {
+  padding: 10px 25px !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  text-transform: uppercase;
+  box-shadow: 0px;
+  border: 0px !important;
+  background: #0076a3 !important;
+}
+
+/* line 48, ../scss/_style.scss */
+.login-form input {
+  border-radius: 3px;
+  box-shadow: none !important;
+  margin: 0px 0px 0px 0px !important;
+}
+
+/* line 54, ../scss/_style.scss */
+.login-form li {
+  padding: 5px 20px;
+  padding-bottom: 10px;
+  float: left;
+  list-style: none;
+  text-align: center;
+}
+
+/* line 62, ../scss/_style.scss */
+.login-form li a {
+  color: #000;
+  font-size: 11px;
+}
+
+/* line 67, ../scss/_style.scss */
+.bottom-links {
+  margin-top: 10px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 25px #444;
+  background: #fff;
 }
