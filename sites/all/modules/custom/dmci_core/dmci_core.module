@@ -4,6 +4,7 @@
 * Implements hook_user_login().
 */
 function dmci_core_user_login(&$edit, $account) {
+	$edit['redirect'] = "node/1";
 }
 
 /**

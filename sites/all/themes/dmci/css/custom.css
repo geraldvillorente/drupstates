@@ -7372,11 +7372,21 @@ body {
 }
 
 /* line 8, ../scss/_style.scss */
+.absolute-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+
+/* line 14, ../scss/_style.scss */
 .clear-both {
   clear: both;
 }
 
-/* line 12, ../scss/_style.scss */
+/* line 18, ../scss/_style.scss */
 .blurred-bg {
   position: absolute;
   width: 100%;
@@ -7385,28 +7395,101 @@ body {
   background-size: cover;
 }
 
+/* line 26, ../scss/_style.scss */
+body.logged-in {
+  margin-top: 0px !important;
+}
+
+/* topbar */
+/* line 31, ../scss/_style.scss */
+.top-bar {
+  position: absolute;
+  top: 0px;
+  z-index: 100;
+  width: 100%;
+  height: 35px;
+  padding: 0px;
+  margin: 0px;
+  background: #3c3c3c;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #3c3c3c 0%, #5a5a5a 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3c3c3c), color-stop(100%, #5a5a5a));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #3c3c3c 0%, #5a5a5a 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #3c3c3c 0%, #5a5a5a 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #3c3c3c 0%, #5a5a5a 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #3c3c3c 0%, #5a5a5a 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3c3c3c', endColorstr='#5a5a5a',GradientType=0 );
+  /* IE6-9 */
+}
+/* line 48, ../scss/_style.scss */
+.top-bar img {
+  position: relative;
+  top: 2px;
+  margin-left: 10px;
+  width: 30px;
+}
+/* line 55, ../scss/_style.scss */
+.top-bar .hamburger {
+  margin-top: 2px;
+  margin-right: 20px;
+  cursor: pointer;
+  border-left: 3px solid #3c3c3c;
+  padding-left: 20px;
+}
+/* line 62, ../scss/_style.scss */
+.top-bar .hamburger li {
+  width: 30px;
+  height: 3px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background: #fff;
+  list-style: none;
+}
+
+/* page title */
+/* line 75, ../scss/_style.scss */
+.page-title-container .page-title {
+  margin-top: 35px;
+  padding: 11px 40px;
+  background: #0055A1;
+}
+/* line 81, ../scss/_style.scss */
+.page-title-container b {
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+/* line 87, ../scss/_style.scss */
+.page-title-container img {
+  position: absolute;
+  width: 100%;
+}
+
 /* login page */
-/* line 21, ../scss/_style.scss */
+/* line 96, ../scss/_style.scss */
 .login-form .content {
   position: absolute;
   width: 100%;
   margin-top: 10%;
 }
-
-/* line 27, ../scss/_style.scss */
+/* line 102, ../scss/_style.scss */
 .login-form .fields {
   background: #fff;
   padding: 25px 25px 0px 25px;
   border-radius: 3px;
   box-shadow: 0px 0px 25px #444;
 }
-
-/* line 34, ../scss/_style.scss */
+/* line 109, ../scss/_style.scss */
 .login-form form {
   padding-top: 10px;
 }
-
-/* line 38, ../scss/_style.scss */
+/* line 113, ../scss/_style.scss */
 .login-form button {
   padding: 10px 25px !important;
   color: #fff !important;
@@ -7416,15 +7499,13 @@ body {
   border: 0px !important;
   background: #0076a3 !important;
 }
-
-/* line 48, ../scss/_style.scss */
+/* line 123, ../scss/_style.scss */
 .login-form input {
   border-radius: 3px;
   box-shadow: none !important;
   margin: 0px 0px 0px 0px !important;
 }
-
-/* line 54, ../scss/_style.scss */
+/* line 129, ../scss/_style.scss */
 .login-form li {
   padding: 5px 20px;
   padding-bottom: 10px;
@@ -7432,17 +7513,49 @@ body {
   list-style: none;
   text-align: center;
 }
-
-/* line 62, ../scss/_style.scss */
+/* line 137, ../scss/_style.scss */
 .login-form li a {
   color: #000;
   font-size: 11px;
 }
-
-/* line 67, ../scss/_style.scss */
-.bottom-links {
+/* line 142, ../scss/_style.scss */
+.login-form .bottom-links {
   margin-top: 10px;
   border-radius: 3px;
   box-shadow: 0px 0px 25px #444;
   background: #fff;
+}
+
+/* selection page */
+/* line 152, ../scss/_style.scss */
+.selection-page .absolute-center {
+  width: 100%;
+  height: 60%;
+}
+/* line 157, ../scss/_style.scss */
+.selection-page .selection {
+  padding: 30px 30px;
+  text-align: center;
+}
+
+/* media queries */
+@media screen and (max-width: 768px) {
+  /* line 166, ../scss/_style.scss */
+  .selection-page .absolute-center {
+    width: 45%;
+    height: 90%;
+  }
+
+  /* line 172, ../scss/_style.scss */
+  .selection {
+    padding: 0px !important;
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 640px) {
+  /* line 180, ../scss/_style.scss */
+  .selection-page .absolute-center {
+    width: 50%;
+    height: 80%;
+  }
 }

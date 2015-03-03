@@ -3,15 +3,15 @@
 	<center class="login-form">
 		<?php print $messages; ?>
 		<div class="content page-margin-top">
-			<div class="row large-3 fields large-centered">
-				<img src="http://dmci.dev/sites/default/files/dmci-logo.jpg" />
+			<div class="row large-3 small-6 fields large-centered">
+				<img src="<?php print $logo; ?>" />
 				<?php
 				$elements = drupal_get_form("user_login");
 				$form = drupal_render($elements);
 				print $form;
 				?>
 			</div>
-			<div class="row large-3 bottom-links">
+			<div class="row large-3 small-6 bottom-links">
 				<ul>
 					<li><a> Need help? </a></li>
 					<li><a> Lost Password </a></li>

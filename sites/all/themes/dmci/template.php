@@ -4,20 +4,33 @@
  * Implements template_preprocess_html().
  *
  */
-//function dmci_preprocess_html(&$variables) {
-//  // Add conditional CSS for IE. To use uncomment below and add IE css file
-//  drupal_add_css(path_to_theme() . '/css/ie.css', array('weight' => CSS_THEME, 'browsers' => array('!IE' => FALSE), 'preprocess' => FALSE));
-//
-//  // Need legacy support for IE downgrade to Foundation 2 or use JS file below
-//  // drupal_add_js('http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js', 'external');
-//}
+function dmci_preprocess_html(&$variables) {
+  GLOBAL $base_url;
+  $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
+
+  $parent_page = menu_link_load('453');
+  $variables['parent_page'] = $parent_page['link_title'];
+}
 
 /**
  * Implements template_preprocess_page
  *
  */
-//function dmci_preprocess_page(&$variables) {
-//}
+function dmci_preprocess_page(&$variables) {
+  GLOBAL $base_url;
+  $nid = @$variables['node']->nid;
+
+  $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
+
+  if ($nid == 1) {
+    $variables['theme_hook_suggestions'][] = "page__selection";
+    $variables['selections'] = array(
+      array(url('node/3', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
+      array(url('node/5', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
+    );
+  }
+
+}
 
 /**
  * Implements template_preprocess_node
