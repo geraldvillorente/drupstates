@@ -1,28 +1,31 @@
 <?php
 
 /**
-* Implements hook_user_login().
-*/
+ * Implements hook_user_login().
+ *
+ */
 function dmci_core_user_login(&$edit, $account) {
-	$edit['redirect'] = "node/1";
+	 $edit['redirect'] = "node/1";
 }
 
 /**
-*	Implements hook_form_alter().
-*/
+ *	Implements hook_form_alter().
+ *
+ */
 function dmci_form_user_login_alter(&$form, &$form_state, $form_id) {
-	$allowed_type = array('textfield', 'password');
-	foreach($form as $key => $field) {
-		if (@in_array($field['#type'], $allowed_type)) {
-			$form[$key]['#attributes']['placeholder'] = $form[$key]['#title'];
-			$form[$key]['#title'] = "";
-			$form[$key]['#required'] = FALSE;
-		}
-	}
+  $allowed_type = array('textfield', 'password');
+  foreach($form as $key => $field) {
+    if (@in_array($field['#type'], $allowed_type)) {
+      $form[$key]['#attributes']['placeholder'] = $form[$key]['#title'];
+      $form[$key]['#title'] = "";
+      $form[$key]['#required'] = FALSE;
+    }
+  }
 }
 
 /**
-*	Implements hook_init().
-*/
-function dmci_core_init() {
-}
+ *	Implements hook_init().
+ *
+ */
+ //function dmci_core_init() {
+ //}
