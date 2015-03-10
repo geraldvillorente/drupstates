@@ -54,9 +54,9 @@
   <?php print $scripts; ?>
   <!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-</head>
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
+   <![endif]-->
+ </head>
+ <body class="<?php print $classes; ?>" <?php print $attributes;?>>
 
   <nav class="top-bar">
     <img src="<?php print $base_url_default_files . "dmci-icon.png"; ?>" class="left" />
@@ -68,12 +68,14 @@
   <?php if (arg(1) != 1): ?>
     <?php if (drupal_is_front_page() != 1): ?>
       <div class="page-title-container">
-        <div class="page-title"><b><?php print $parent_page; ?></b></div>
-        <div id="wave"></div>
+        <div class="parent-page"><b><?php print $parent_page; ?></b></div>
+        <div class="current-page">
+          <div class="b-container"><b><?php print $current_page; ?></b></div>
+          <img src="<?php print $base_url_default_files . "top-curve.png"; ?>" class="curve">
+        </div>
       </div>
     <?php endif; ?>
   <?php endif; ?>
-
 
   <?php print $page_top; ?>
   <?php print $page; ?>
@@ -86,37 +88,3 @@
   </script>
 </body>
 </html>
-
-<style>
-#wave {
-  position: absolute;
-  height: 10%;
-  width: 100%;
-  background: #e0efe3;
-}
-
-#wave:before {
-        content: "";
-        display: block;
-        position: absolute;
-        border-radius: 100% 50%;
-        width: 340px;
-    height: 80px;
-    background-color: white;
-    right: -5px;
-    top: 40px;
-}
-
-#wave:after {
-        content: "";
-        display: block;
-        position: absolute;
-        border-radius: 100% 50%;
-        width: 300px;
-    height: 70px;
-    background-color: #e0efe3;
-    left: 0;
-    top: 27px;
-}
-
-</style>

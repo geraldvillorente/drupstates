@@ -1,7 +1,7 @@
 <div class="login-page">
 	<div class="blurred-bg"></div>
 	<center class="login-form">
-		<?php print $messages; ?>
+		<div class="msg-box"> <?php print $messages; ?> </div>
 		<div class="content page-margin-top">
 			<div class="row large-3 small-6 fields large-centered">
 				<img src="<?php print $logo; ?>" />
