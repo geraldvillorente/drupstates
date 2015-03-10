@@ -2,7 +2,6 @@
   <div class="swiper-container">
     <div class="swiper-wrapper window map">
 
-<<<<<<< HEAD
       <div class="swiper-slide first-slide">
         <div class="info">
           <div class="large-6 columns">
@@ -30,8 +29,6 @@
         </div>
       </div>
 
-=======
->>>>>>> 8b5c18ff08e9a364bf216cf8b8296d992a3fcc6f
       <div class="swiper-slide">
         <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61779.36708262926!2d121.05804382695315!3d14.587081178095216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdmci!5e0!3m2!1sen!2sph!4v1425621662704" width="100%" height="300" frameborder="0" style="border:0"></iframe>
         <div class="subtitle copy">
@@ -69,7 +66,6 @@
         </div>
       </div>
 
-<<<<<<< HEAD
       <div class="swiper-slide" style="overflow: hidden;">
         <div class="swiper-container2">
           <div class="swiper-wrapper" style="height: 300px;">
@@ -80,12 +76,6 @@
           <div class="swiper-pagination2"></div>
         </div>
 
-=======
-      <div class="swiper-slide">
-        <div class="slider">
-           <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>) center center; width: 100%; height: 100%; background-size: cover"></div>
-        </div>
->>>>>>> 8b5c18ff08e9a364bf216cf8b8296d992a3fcc6f
         <div class="subtitle copy">
           <center>
             Ideally located along the East Service Road, Rhapsody Residences is mere minutes away from the commercial centers and business districts.
@@ -126,21 +116,12 @@
               <li> S&amp;R Alabang: 4 km (12 mins) </li>
               <li> Metropolis Mall: 3.3 km (12 mins) </li>
             </ul>
-<<<<<<< HEAD
-=======
-
-            <!-- <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 100%; height: 260px; background-size: cover"></div> -->
->>>>>>> 8b5c18ff08e9a364bf216cf8b8296d992a3fcc6f
           </div>
         </div>
       </div>
 
       <div class="swiper-slide">
-<<<<<<< HEAD
         <div class="swiper-slide"> <div class="item" style="background: url(<?php print $base_url_default_files . "tower.jpg" ?>) center center; width: 100%; height: 300px; background-size: cover"></div> </div>
-=======
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61779.36708262926!2d121.05804382695315!3d14.587081178095216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdmci!5e0!3m2!1sen!2sph!4v1425621662704" width="100%" height="300" frameborder="0" style="border:0"></iframe>
->>>>>>> 8b5c18ff08e9a364bf216cf8b8296d992a3fcc6f
         <div class="subtitle copy">
           <center>
             Ideally located along the East Service Road, Rhapsody Residences is mere minutes away from the commercial centers and business districts.
