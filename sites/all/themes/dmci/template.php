@@ -6,10 +6,10 @@
  */
 function dmci_preprocess_html(&$variables) {
   GLOBAL $base_url;
-  $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
-
   $parent_page = menu_link_load('453');
+  $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
   $variables['parent_page'] = $parent_page['link_title'];
+  $variables['current_page'] = $variables['head_title_array']['title'];
 }
 
 /**
@@ -28,16 +28,27 @@ function dmci_preprocess_page(&$variables) {
       array(url('node/3', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
       array(url('node/5', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
     );
+  } else if ($nid == 5) {
+    $variables['theme_hook_suggestions'][] = "page__company";
+  } else if ($nid == 6) {
+    $variables['theme_hook_suggestions'][] = "page__property";
   }
 
+  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/swiper.min.css');
+  drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/swiper.min.js', array('scope' => 'footer'));
+  drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/index.js', array('scope' => 'footer'));
 }
 
 /**
  * Implements template_preprocess_node
  *
  */
-//function dmci_preprocess_node(&$variables) {
-//}
+function dmci_preprocess_node(&$variables) {
+  GLOBAL $base_url;
+  $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
+
+  $variables['theme_hook_suggestions'][] = "node__project";
+}
 
 /**
  * Implements hook_preprocess_block()
