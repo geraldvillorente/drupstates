@@ -6,10 +6,11 @@
  */
 function dmci_preprocess_html(&$variables) {
   GLOBAL $base_url;
-  $parent_page = menu_link_load('453');
+  $menu_trail = menu_get_active_trail();
+  @$parent_page = menu_link_load($menu_trail[1]['mlid']);
   $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
   $variables['parent_page'] = $parent_page['link_title'];
-  $variables['current_page'] = $variables['head_title_array']['title'];
+  @$variables['current_page'] = $variables['head_title_array']['title'];
 }
 
 /**
@@ -26,16 +27,21 @@ function dmci_preprocess_page(&$variables) {
     $variables['theme_hook_suggestions'][] = "page__selection";
     $variables['selections'] = array(
       array(url('node/3', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
-      array(url('node/5', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
+      array(url('node/11', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
     );
-  } else if ($nid == 5) {
+  } else if ($nid == 11) {
     $variables['theme_hook_suggestions'][] = "page__company";
   } else if ($nid == 6) {
     $variables['theme_hook_suggestions'][] = "page__property";
+  } else if ($nid == 12) {
+    $variables['theme_hook_suggestions'][] = "page__bpc";
   }
 
   drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/swiper.min.css');
   drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/swiper.min.js', array('scope' => 'footer'));
+  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/screen.css');
+  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/lightbox.css');
+  drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/lightbox.js', array('scope' => 'footer'));
   drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/index.js', array('scope' => 'footer'));
 }
 
@@ -46,7 +52,6 @@ function dmci_preprocess_page(&$variables) {
 function dmci_preprocess_node(&$variables) {
   GLOBAL $base_url;
   $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
-
   $variables['theme_hook_suggestions'][] = "node__project";
 }
 
