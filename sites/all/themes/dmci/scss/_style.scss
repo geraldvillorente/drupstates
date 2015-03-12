@@ -405,10 +405,11 @@ body.logged-in {
     z-index: 100;
 
     span {
-      margin-left: 3px;
-      margin-right: 3px;
-      width: 12px;
-      height: 12px;
+      margin-left: 5px;
+      margin-right: 5px;
+      width: 15px;
+      height: 15px;
+      box-shadow: 1px 1px 3px #444;
     }
   }
 

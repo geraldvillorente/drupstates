@@ -43,11 +43,11 @@
              At DMCI Homes, residents are ensuredof space and a natural home-seeting even inside the builidng, Verdant greenery and lanscape views are not confined merely to the amenities area; feel the cool, fresh breeze rushing through your building. courtesy of two of the finest features of a DMCI Homes builidng, the single-loaded corridors and graden atriums. These two features provide low-density living, a healthy quality of life, and peaceful rejuvenation for its residents.
            </div>
 
-           <div class="large-3 columns">
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
+           <div class="large-3 columns image-set">
+             <a href="<?php print $base_url_default_files . "flair-1.jpg" ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print $base_url_default_files . "flair-1.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
+             <a href="<?php print $base_url_default_files . "flair-2.jpg" ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print $base_url_default_files . "flair-2.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
+             <a href="<?php print $base_url_default_files . "property-7.jpg" ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
+             <a href="<?php print $base_url_default_files . "property-3.jpg" ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
            </div>
 
            <div class="large-4 columns copy">
@@ -98,10 +98,10 @@
            </div>
 
            <div class="large-3 columns">
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
+             <div class="item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
+             <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
+             <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
+             <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
            </div>
 
            <div class="large-4 columns copy">
@@ -144,10 +144,10 @@
            </div>
 
            <div class="large-3 columns">
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 140px; height: 125px; background-size: cover"></div>
+             <div class="item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
+             <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
+             <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
+             <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
            </div>
 
            <div class="large-4 columns copy">
