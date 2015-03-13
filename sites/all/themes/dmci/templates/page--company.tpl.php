@@ -84,17 +84,17 @@
     </div>
     <div class="large-6 columns right-side">
       <div class="masonry">
-         <div class="item"><img src="<?php print $base_url_default_files . "history-1.jpg" ?>"></div>
-         <div class="item"><img src="<?php print $base_url_default_files . "history-2.jpg" ?>"></div>
-         <div class="item"><img src="<?php print $base_url_default_files . "history-img.jpg" ?>"></div>
-         <div class="item"><img src="<?php print $base_url_default_files . "history-3.jpg" ?>"></div>
-         <div class="item"><img src="<?php print $base_url_default_files . "history-4.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-1.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-2.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-img.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-3.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-4.jpg" ?>"></div>
 
-         <div class="item"><img src="<?php print $base_url_default_files . "history-4.jpg" ?>"></div>
-         <div class="item"><img src="<?php print $base_url_default_files . "history-2.jpg" ?>"></div>
-         <div class="item"><img src="<?php print $base_url_default_files . "history-img.jpg" ?>"></div>
-         <div class="item"><img src="<?php print $base_url_default_files . "history-1.jpg" ?>"></div>
-         <div class="item"><img src="<?php print $base_url_default_files . "history-3.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-4.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-2.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-img.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-1.jpg" ?>"></div>
+        <div class="item"><img src="<?php print $base_url_default_files . "history-3.jpg" ?>"></div>
       </div>
     </div>
   </div>

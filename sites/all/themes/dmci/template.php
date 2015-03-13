@@ -35,6 +35,12 @@ function dmci_preprocess_page(&$variables) {
     $variables['theme_hook_suggestions'][] = "page__property";
   } else if ($nid == 12) {
     $variables['theme_hook_suggestions'][] = "page__bpc";
+  } else if ($nid == 15) {
+    $variables['theme_hook_suggestions'][] = "page__reservation";
+    $block_reservationform = module_invoke('webform', 'block_view', 'client-block-15');
+    $variables['reservation_form'] = $block_reservationform['content'];
+  } else if ($nid == 16) {
+    $variables['theme_hook_suggestions'][] = "page__bpc";
   }
 
   drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/swiper.min.css');
