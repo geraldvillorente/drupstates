@@ -443,6 +443,54 @@ body.logged-in {
   }
 }
 
+.login-form.bpc {
+  margin-top: -8% !important;
+}
+
+.bpc {
+  .blurred-bg {
+    position: absolute;
+    top: 0px;
+  }
+
+  .fields {
+    padding: 0px;
+  }
+
+  .text p {
+    height: 32px;
+  }
+
+  p {
+    margin-bottom: 5px !important;
+  }
+
+  button {
+   margin-top: 10px;
+   margin-left: 10px;
+   padding: 10px;
+   background: #00769B;
+   font-size: 24px !important;
+  }
+
+  .fields {
+   background: #FFD27E;
+  }
+
+  .adjustments {
+    position: relative;
+    left: 15px;
+    margin: 10px 0px;
+    text-align: left;
+  }
+
+  .cols3,
+  .cols2 {
+   position: relative;
+   z-index: 10;
+  }
+}
+
 /* media queries */
 @media screen and (max-width: 768px) {
   .selection-page {
