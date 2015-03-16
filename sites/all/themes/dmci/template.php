@@ -36,11 +36,21 @@ function dmci_preprocess_page(&$variables) {
   } else if ($nid == 12) {
     $variables['theme_hook_suggestions'][] = "page__bpc";
   } else if ($nid == 15) {
-    $variables['theme_hook_suggestions'][] = "page__reservation";
     $block_reservationform = module_invoke('webform', 'block_view', 'client-block-15');
+    $variables['theme_hook_suggestions'][] = "page__reservation";
     $variables['reservation_form'] = $block_reservationform['content'];
   } else if ($nid == 16) {
     $variables['theme_hook_suggestions'][] = "page__bpc";
+  } else if ($nid == 17) {
+    $variables['theme_hook_suggestions'][] = "page__thankyou";
+  } else if ($nid == 19) {
+    $variables['theme_hook_suggestions'][] = "page__dashboard_news";
+  } else if ($nid == 20) {
+    $variables['theme_hook_suggestions'][] = "page__dashboard_home";
+  } else if ($nid == 21) {
+    $variables['theme_hook_suggestions'][] = "page__dashboard_contacts";
+  } else if ($nid == 22) {
+    $variables['theme_hook_suggestions'][] = "page__dashboard_single_contact";
   }
 
   drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/swiper.min.css');
