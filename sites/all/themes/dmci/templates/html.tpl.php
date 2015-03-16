@@ -65,18 +65,35 @@
     </div>
   </nav>
 
-  <?php if (arg(1) != 1): ?>
-    <?php if (drupal_is_front_page() != 1): ?>
-      <div class="page-title-container">
-        <div class="parent-page"><b><?php print $parent_page; ?></b></div>
-        <div class="current-page">
-          <div class="b-container"><b><?php print $current_page; ?></b></div>
-          <img src="<?php print $base_url_default_files . "top-curve.png"; ?>" class="curve">
+  <?php if ($parent_page != "Dashboard"): ?>
+    <?php if (arg(1) != 1): ?>
+      <?php if (drupal_is_front_page() != 1): ?>
+        <div class="page-title-container">
+          <div class="parent-page"><b><?php print $parent_page; ?></b></div>
+          <div class="current-page">
+            <div class="b-container"><b><?php print $current_page; ?></b></div>
+            <img src="<?php print $base_url_default_files . "top-curve.png"; ?>" class="curve">
+          </div>
         </div>
-      </div>
+      <?php endif; ?>
     <?php endif; ?>
+  <?php else: ?>
+    <div class="dashboard-menu">
+      <ul>
+        <li> <a href="#" class="active"> News </a> </li>
+        <li> <a href="#"> Home </a> </li>
+        <li> <a href="#"> Reservation </a> </li>
+        <li> <a href="#"> Availability </a> </li>
+        <li> <a href="#"> Contacts </a> </li>
+        <li> <a href="#"> Profile </a> </li>
+        <div class="clear-both"></div>
+      </ul>
+      <div class="right profile-name">
+        <div class="name left"> Juan Dela Cruz <div> Marketing Manager </div> </div>
+        <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" />
+      </div>
+    </div>
   <?php endif; ?>
-
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
