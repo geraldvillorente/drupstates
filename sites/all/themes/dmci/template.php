@@ -51,6 +51,16 @@ function dmci_preprocess_page(&$variables) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_contacts";
   } else if ($nid == 22) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_single_contact";
+  } else if ($nid == 23) {
+    $variables['theme_hook_suggestions'][] = "page__dashboard_reservation";
+  } else if ($nid == 24) {
+    $variables['theme_hook_suggestions'][] = "page__dashboard_profile";
+  } else if ($nid == 25) {
+    $variables['theme_hook_suggestions'][] = "page__dashboard_availability_room";
+  } else if ($nid == 26) {
+    $variables['theme_hook_suggestions'][] = "page__dashboard_availability";
+    drupal_add_js(drupal_get_path('theme', 'dmci').'/js/foundation/foundation.reveal.js', array('scope' => 'footer'));
+    drupal_add_js('(function($){ $(document).foundation(); })(jQuery)', array('type' => 'inline', 'scope' => 'footer'));
   }
 
   drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/swiper.min.css');

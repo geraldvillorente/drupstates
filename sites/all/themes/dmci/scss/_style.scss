@@ -842,8 +842,45 @@ article .button {
   letter-spacing: 1px;
 }
 
+/* reservation list */
+.reservation-list {
+  margin-top: 25px;
+  border: 3px solid #ccc;
+  background: #fff;
+
+  table {
+    border: 0px;
+  }
+
+  thead {
+    background: #fff;
+    border: 0px;
+
+    th {
+      border: 0px;
+      text-transform: uppercase;
+      font-weight: lighter;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      font-size: 13px;
+    }
+  }
+
+  tr {
+    background: #fff !important;
+    border-bottom: 1px solid #ccc;
+  }
+
+  tbody {
+   border: 3px solid #ccc;
+    td {
+      line-height: 2.125em;
+    }
+  }
+}
+
 /* thank you */
-.page-title-container {
+/*.page-title-container {
   display: none;
 }
 
@@ -865,7 +902,7 @@ article .button {
   width: 50px;
   opacity: .5;
   cursor: pointer;
-}
+}*/
 
 /* media queries */
 @media screen and (max-width: 768px) {
