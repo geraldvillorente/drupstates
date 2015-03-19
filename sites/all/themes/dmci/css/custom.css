@@ -8259,13 +8259,50 @@ article .button {
   letter-spacing: 1px;
 }
 
-/* thank you */
+/* reservation list */
 /* line 846, ../scss/_style.scss */
-.page-title-container {
+.reservation-list {
+  margin-top: 25px;
+  border: 3px solid #ccc;
+  background: #fff;
+}
+/* line 851, ../scss/_style.scss */
+.reservation-list table {
+  border: 0px;
+}
+/* line 855, ../scss/_style.scss */
+.reservation-list thead {
+  background: #fff;
+  border: 0px;
+}
+/* line 859, ../scss/_style.scss */
+.reservation-list thead th {
+  border: 0px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 13px;
+}
+/* line 869, ../scss/_style.scss */
+.reservation-list tr {
+  background: #fff !important;
+  border-bottom: 1px solid #ccc;
+}
+/* line 874, ../scss/_style.scss */
+.reservation-list tbody {
+  border: 3px solid #ccc;
+}
+/* line 876, ../scss/_style.scss */
+.reservation-list tbody td {
+  line-height: 2.125em;
+}
+
+/* thank you */
+/*.page-title-container {
   display: none;
 }
 
-/* line 850, ../scss/_style.scss */
 .login-form {
   position: relative;
   padding: 100px 25px;
@@ -8274,10 +8311,9 @@ article .button {
   color: #fff;
   font-size: 28px;
   border-radius: 5px;
-  background: #0e41f6;
+  background: rgb(14, 65, 246);
 }
 
-/* line 861, ../scss/_style.scss */
 .home-btn {
   position: absolute;
   right: 20px;
@@ -8285,31 +8321,30 @@ article .button {
   width: 50px;
   opacity: .5;
   cursor: pointer;
-}
-
+}*/
 /* media queries */
 @media screen and (max-width: 768px) {
-  /* line 873, ../scss/_style.scss */
+  /* line 910, ../scss/_style.scss */
   .selection-page .absolute-center {
     width: 45%;
     height: 90%;
   }
 
-  /* line 879, ../scss/_style.scss */
+  /* line 916, ../scss/_style.scss */
   .selection {
     padding: 0px !important;
     margin-top: 30px;
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 887, ../scss/_style.scss */
+  /* line 924, ../scss/_style.scss */
   .selection-page .absolute-center {
     width: 50%;
     height: 80%;
   }
 }
 @media only screen and (min-width: 400px) {
-  /* line 895, ../scss/_style.scss */
+  /* line 932, ../scss/_style.scss */
   .masonry {
     -moz-column-count: 2;
     -webkit-column-count: 2;
@@ -8317,7 +8352,7 @@ article .button {
   }
 }
 @media only screen and (min-width: 700px) {
-  /* line 903, ../scss/_style.scss */
+  /* line 940, ../scss/_style.scss */
   .masonry {
     -moz-column-count: 3;
     -webkit-column-count: 3;
@@ -8325,7 +8360,7 @@ article .button {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 911, ../scss/_style.scss */
+  /* line 948, ../scss/_style.scss */
   .masonry {
     -moz-column-count: 4;
     -webkit-column-count: 4;
@@ -8333,21 +8368,21 @@ article .button {
   }
 }
 @media only screen and (min-width: 1100px) {
-  /* line 921, ../scss/_style.scss */
+  /* line 958, ../scss/_style.scss */
   .property-selection .masonry {
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;
   }
 
-  /* line 928, ../scss/_style.scss */
+  /* line 965, ../scss/_style.scss */
   .masonry {
     -moz-column-count: 5;
     -webkit-column-count: 5;
     column-count: 5;
   }
 
-  /* line 934, ../scss/_style.scss */
+  /* line 971, ../scss/_style.scss */
   .info .masonry {
     -moz-column-count: 2;
     -webkit-column-count: 2;
@@ -8355,7 +8390,7 @@ article .button {
   }
 }
 @media only screen and (min-width: 1280px) {
-  /* line 942, ../scss/_style.scss */
+  /* line 979, ../scss/_style.scss */
   .wrapper {
     width: 1260px;
   }

@@ -19,3 +19,11 @@ var swiper2 = new Swiper('.swiper-container2', {
   autoplay: 3000,
   autoplayDisableOnInteraction: false
 });
+
+var swiper3 = new Swiper('.swiper-container-3', {
+  slidesPerView: 4,
+  centeredSlides: true,
+  paginationClickable: true,
+  spaceBetween: 30,
+  grabCursor: true
+});
