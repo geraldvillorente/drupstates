@@ -7,6 +7,7 @@
   </div>
   <div class="clear-both"></div>
 
+  <a href="single-contact">
   <div class="contact-container">
   <div class="contact">
     <div class="large-5 small-12 columns">
@@ -19,6 +20,7 @@
       </div>
     </div>
   </div>
+  </a>
 
   <div class="contact">
     <div class="large-5 small-12 columns">
@@ -70,14 +72,9 @@
   </div>
 
 </div>
+
 <style>
-body {
-  background: -moz-linear-gradient(top, #fff -30%, rgba(121, 150, 181, 1) 125%);
-  background: -webkit-gradient(bottom top, right top, color-stop(-30%, #fff), color-stop(125%, rgba(121, 150, 181, 1)));
-  background: -webkit-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
-  background: -o-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
-  background: -ms-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
-  background: linear-gradient(to bottom, #fff 70%, rgba(121, 150, 181, 1) 125%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0097d2', endColorstr='#00b0a1', GradientType=1 );
+.contacts {
+ margin-top: -10px;
 }
 </style>
