@@ -60,31 +60,22 @@
 
  <div id="st-container" class="st-container">
  <div class="st-pusher">
-   <nav class="st-menu st-effect-3" id="menu-3">
+  <nav class="st-menu st-effect-3" id="menu-3">
     <ul>
-      <li><a class="icon" href="#">Data Management</a></li>
-      <li><a class="icon" href="#">Location</a></li>
-      <li><a class="icon" href="#">Study</a></li>
-      <li><a class="icon" href="#">Collections</a></li>
-      <li><a class="icon" href="#">Credits</a></li>
+      <li><a class="icon" href="/history">History</a></li>
+      <li><a class="icon" href="/company-profile">Company Profile</a></li>
+      <li><a class="icon" href="/property-selection">Property Selection</a></li>
+      <li><a class="icon" href="/reservation">Reservation</a></li>
+      <li><a class="icon" href="/bpc-form">BPC</a></li>
     </ul>
   </nav>
 
-
   <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+    <img src="<?php print $base_url_default_files . "dmci-icon.png"; ?>" class="left" />
     <div class="top-bar-section">
       <div id="st-trigger-effects" class="column">
         <button data-effect="st-effect-3" class="hamburger right"> <li></li><li></li><li></li> </button>
       </div>
- <!-- <ul class="right">
-        <li class="has-dropdown">
-          <a href="#">Right Button Dropdown</a>
-          <ul class="dropdown">
-            <li><a href="#">First link in dropdown</a></li>
-            <li class="active"><a href="#">Active link in dropdown</a></li>
-          </ul>
-        </li>
-      </ul> -->
     </div>
   </nav>
 

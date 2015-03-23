@@ -96,7 +96,8 @@ body.logged-in {
   }
 
  .hamburger {
-    margin-top: 2px;
+    position: relative;
+    top: -30px;
     margin-right: 35px;
     cursor: pointer;
     border-left: 3px solid #3c3c3c;
@@ -111,6 +112,12 @@ body.logged-in {
       list-style: none;
     }
   }
+}
+
+.st-pusher {
+ position: absolute;
+ top: 0px;
+ width: 100%;
 }
 
 /* page title */
@@ -1078,14 +1085,13 @@ article .button {
 }
 
 /* thank you */
-/*.page-title-container {
+.section-thank-you .page-title-container {
   display: none;
 }
 
-.login-form {
-  position: relative;
+.section-thank-you .login-form {
   padding: 100px 25px;
-  margin-top: 15%;
+  top: 200px;
   z-index: 10;
   color: #fff;
   font-size: 28px;
@@ -1093,14 +1099,14 @@ article .button {
   background: rgb(14, 65, 246);
 }
 
-.home-btn {
+.section-thank-you .home-btn {
   position: absolute;
   right: 20px;
   bottom: 20px;
   width: 50px;
   opacity: .5;
   cursor: pointer;
-}*/
+}
 
 /* media queries */
 @media screen and (max-width: 768px) {
