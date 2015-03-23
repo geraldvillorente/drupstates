@@ -1,7 +1,11 @@
 <div class="contacts row">
   <div class="large-10 columns large-centered">
     <div class="contact-info">
-      <div class="large-3 columns"> <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" /> </div>
+      <img src="<?php print $logo; ?>" class="profile-logo">
+      <div class="large-3 columns">
+        <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" />
+        <button class="right back"> EDIT PROFILE </button>
+      </div>
       <div class="large-9 columns">
         <p class="title"> Contact Information </p>
         <div class="field row"> <div class="large-3 columns"> Name: </div>  <div class="large-9 columns">Maynard Cabalitan</div> </div>
@@ -20,16 +24,3 @@
     </div>
   </div>
 </div>
-<style>
-
-body {
-  background: -moz-linear-gradient(top, #fff -30%, rgba(121, 150, 181, 1) 125%);
-  background: -webkit-gradient(bottom top, right top, color-stop(-30%, #fff), color-stop(125%, rgba(121, 150, 181, 1)));
-  background: -webkit-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
-  background: -o-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
-  background: -ms-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
-  background: linear-gradient(to bottom, #fff 70%, rgba(121, 150, 181, 1) 125%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0097d2', endColorstr='#00b0a1', GradientType=1 );
-}
-
-</style>

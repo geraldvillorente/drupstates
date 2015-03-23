@@ -56,12 +56,26 @@
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
    <![endif]-->
  </head>
- <body class="<?php print $classes; ?>" <?php print $attributes;?>>
+ <body class="<?php print $classes. " ".$parent_page; ?>" <?php print $attributes;?>>
 
-  <nav class="top-bar">
+ <div id="st-container" class="st-container">
+ <div class="st-pusher">
+  <nav class="st-menu st-effect-3" id="menu-3">
+    <ul>
+      <li><a class="icon" href="/history">History</a></li>
+      <li><a class="icon" href="/company-profile">Company Profile</a></li>
+      <li><a class="icon" href="/property-selection">Property Selection</a></li>
+      <li><a class="icon" href="/reservation">Reservation</a></li>
+      <li><a class="icon" href="/bpc-form">BPC</a></li>
+    </ul>
+  </nav>
+
+  <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
     <img src="<?php print $base_url_default_files . "dmci-icon.png"; ?>" class="left" />
-    <div class="hamburger right">
-      <li></li><li></li><li></li>
+    <div class="top-bar-section">
+      <div id="st-trigger-effects" class="column">
+        <button data-effect="st-effect-3" class="hamburger right"> <li></li><li></li><li></li> </button>
+      </div>
     </div>
   </nav>
 
@@ -80,12 +94,12 @@
   <?php else: ?>
     <div class="dashboard-menu">
       <ul>
-        <li> <a href="#" class="active"> News </a> </li>
-        <li> <a href="#"> Home </a> </li>
-        <li> <a href="#"> Reservation </a> </li>
-        <li> <a href="#"> Availability </a> </li>
-        <li> <a href="#"> Contacts </a> </li>
-        <li> <a href="#"> Profile </a> </li>
+        <li id="news"> <a href="news"> News </a> </li>
+        <li id="home"> <a href="home"> Home </a> </li>
+        <li id="reservation"> <a href="reservation-list"> Reservation </a> </li>
+        <li id="availability"> <a href="availability"> Availability </a> </li>
+        <li id="contacts"> <a href="contacts"> Contacts </a> </li>
+        <li id="profile"> <a href="profile"> Profile </a> </li>
         <div class="clear-both"></div>
       </ul>
       <div class="right profile-name">
@@ -103,5 +117,13 @@
       $(document).foundation();
     })(jQuery, Drupal, this, this.document);
   </script>
+  </div>
+</div>
 </body>
 </html>
+
+<style>
+nav {
+
+}
+</style>

@@ -1,6 +1,26 @@
 $dark_blue: #0055A1;
 
+.section-home #home a,
+.section-news #news a,
+.section-reservation-list #reservation a,
+.section-availability #availability a,
+.section-contacts #contacts a,
+.section-profile #profile a {
+  border-top: 2px solid #fff;
+  background: rgba(255, 255, 255, .1);
+}
+
 /* global */
+body.Dashboard {
+  background: -moz-linear-gradient(top, #fff -30%, rgba(121, 150, 181, 1) 125%);
+  background: -webkit-gradient(bottom top, right top, color-stop(-30%, #fff), color-stop(125%, rgba(121, 150, 181, 1)));
+  background: -webkit-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
+  background: -o-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
+  background: -ms-linear-gradient(bottom, #fff -30%, rgba(121, 150, 181, 1) 125%);
+  background: linear-gradient(to bottom, #fff 70%, rgba(121, 150, 181, 1) 125%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0097d2', endColorstr='#00b0a1', GradientType=1 );
+}
+
 body {
   position: absolute;
   height: 100%;
@@ -67,13 +87,6 @@ body.logged-in {
   padding: 0px;
   margin: 0px;
   background: #3c3c3c; /* Old browsers */
-  background: -moz-linear-gradient(top,  #3c3c3c 0%, #5a5a5a 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3c3c3c), color-stop(100%,#5a5a5a)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #3c3c3c 0%,#5a5a5a 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #3c3c3c 0%,#5a5a5a 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #3c3c3c 0%,#5a5a5a 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #3c3c3c 0%,#5a5a5a 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3c3c3c', endColorstr='#5a5a5a',GradientType=0 ); /* IE6-9 */
 
   img {
     position: relative;
@@ -83,7 +96,8 @@ body.logged-in {
   }
 
  .hamburger {
-    margin-top: 2px;
+    position: relative;
+    top: -30px;
     margin-right: 35px;
     cursor: pointer;
     border-left: 3px solid #3c3c3c;
@@ -98,6 +112,12 @@ body.logged-in {
       list-style: none;
     }
   }
+}
+
+.st-pusher {
+ position: absolute;
+ top: 0px;
+ width: 100%;
 }
 
 /* page title */
@@ -493,6 +513,19 @@ body.logged-in {
 
 /* single contact */
 .contacts {
+   position: relative;
+   margin-top: 10px;
+
+   a {
+     color: #000 !important;
+   }
+
+   .contact-info .profile-logo {
+     position: absolute;
+     bottom: 25px;
+     width: 185px;
+   }
+
   .field.row {
     font-size: 14px;
     margin: 0px;
@@ -879,15 +912,186 @@ article .button {
   }
 }
 
+.swiper-container-3 {
+ overflow: hidden;
+ margin-top: 75px;
+}
+
+.swiper-container-3 .swiper-slide {
+  position: relative;
+  background: #ccc;
+  height: 400px;
+}
+
+.swiper-container-3 .logo {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background: rgba(0,0,0,0.6);
+}
+
+.swiper-container-3 .logo img {
+  width: 50%;
+}
+
+.myModal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+}
+
+.units {
+  padding: 15px;
+  background: #fff;
+}
+
+.units .large-4 {
+  padding: 15px;
+}
+
+.units .lft {
+  border-right: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+}
+
+.units .mid {
+  border-bottom: 3px solid #ccc;
+}
+
+.units .rht {
+  border-left: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+}
+
+.units .stat {
+  border: 2px solid #7c7c7c;
+  width: 60%;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -5px;
+}
+
+.units .rsvd .stat {
+  color: #fff;
+  background: #007C39;
+  border: 2px solid #007C39;
+}
+
+.units .sold .stat {
+  color: #fff;
+  background: #7c7c7c;
+}
+
+.units .header {
+  font-weight: bold;
+}
+
+.units .header .right {
+  position: relative;
+  left: -25px;
+}
+
+.units .bldg {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #ccc;
+}
+
+.availability-room {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: rgba(0, 0, 0, 0.1);
+  max-width: 95%;
+  margin-top: 25px;
+  overflow-y: scroll;
+  height: 525px;
+}
+
+.availability-room .floor-plan-bg {
+  background: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.availability-room .floor-plan .image {
+}
+
+.availability-room .title {
+  text-align: center;
+  line-height: 20px;
+}
+
+.availability-room .title .uppercase {
+  letter-spacing: 1px;
+}
+
+.availability-room .title .copy:last-child {
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.availability-room table tr {
+  background: #fff;
+}
+
+.availability-room table,
+.availability-room tbody {
+  border: 0px;
+}
+
+.availability-room tr td:first-child {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.availability-room tr td:last-child {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.availability-room tr:last-child {
+  border-top: 3px solid #000;
+}
+
+.availability-room li {
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.availability-room .bottom-p {
+  padding: 15px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.availability-room .bottom-p > div {
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.availability-room .logo {
+  padding-top: 12px;
+}
+
 /* thank you */
-/*.page-title-container {
+.section-thank-you .page-title-container {
   display: none;
 }
 
-.login-form {
-  position: relative;
+.section-thank-you .login-form {
   padding: 100px 25px;
-  margin-top: 15%;
+  top: 200px;
   z-index: 10;
   color: #fff;
   font-size: 28px;
@@ -895,14 +1099,14 @@ article .button {
   background: rgb(14, 65, 246);
 }
 
-.home-btn {
+.section-thank-you .home-btn {
   position: absolute;
   right: 20px;
   bottom: 20px;
   width: 50px;
   opacity: .5;
   cursor: pointer;
-}*/
+}
 
 /* media queries */
 @media screen and (max-width: 768px) {

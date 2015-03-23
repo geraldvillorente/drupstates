@@ -59,8 +59,7 @@ function dmci_preprocess_page(&$variables) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_availability_room";
   } else if ($nid == 26) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_availability";
-    drupal_add_js(drupal_get_path('theme', 'dmci').'/js/foundation/foundation.reveal.js', array('scope' => 'footer'));
-    drupal_add_js('(function($){ $(document).foundation(); })(jQuery)', array('type' => 'inline', 'scope' => 'footer'));
+    drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/foundation/foundation.reveal.js', array('scope' => 'footer'));
   }
 
   drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/swiper.min.css');
@@ -69,6 +68,18 @@ function dmci_preprocess_page(&$variables) {
   drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/lightbox.css');
   drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/lightbox.js', array('scope' => 'footer'));
   drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/index.js', array('scope' => 'footer'));
+  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/foundation/foundation.topbar.js', array('scope' => 'footer'));
+  drupal_add_js('(function($){ $(document).foundation(); })(jQuery)', array('type' => 'inline', 'scope' => 'footer'));
+
+  // Menu
+  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/component.css');
+  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/icons.css');
+  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/normalize.css');
+
+  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/classie.js', array('scope' => 'footer'));
+  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/modernizr.custom.js', array('scope' => 'footer'));
+  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/sidebarEffects.js', array('scope' => 'footer'));
+
 }
 
 /**

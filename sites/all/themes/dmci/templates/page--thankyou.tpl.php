@@ -4,4 +4,4 @@
     Thank you for sending a request for reservation.
   </center>
 </div>
-<img src="<?php print $base_url_default_files . "dmci-icon.png"; ?>" class="home-btn" />
+<img src="<?php print $base_url_default_files . "home-icon.png"; ?>" class="home-btn" />
