@@ -112,6 +112,16 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
   <?php print _zurb_foundation_add_reveals(); ?>
+
+  <?php if ($parent_page == "Dashboard"): ?>
+    <div class="search-container">
+      <div class="search-overflow">
+        <div class="search"> <img src="<?php print $base_url_default_files . "search-icon.png"; ?>" /> </div>
+        <input type="text" placeholder="Search" class="form-search" />
+      </div>
+    </div>
+  <?php endif; ?>
+
   <script>
     (function ($, Drupal, window, document, undefined) {
       $(document).foundation();
@@ -121,9 +131,3 @@
 </div>
 </body>
 </html>
-
-<style>
-nav {
-
-}
-</style>

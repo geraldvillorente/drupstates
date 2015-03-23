@@ -27,3 +27,16 @@ var swiper3 = new Swiper('.swiper-container-3', {
   spaceBetween: 30,
   grabCursor: true
 });
+
+(function($){
+  $(document).on('click', '.search', function()
+  {
+    if ($('.form-search').is(':hidden')) {
+     $('.form-search').show();
+      $('.search-overflow').css({'top': '0px'});
+    } else {
+     $('.form-search').hide();
+      $('.search-overflow').css({'top': '0px'});
+    }
+  })
+})(jQuery)
