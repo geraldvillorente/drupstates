@@ -91,14 +91,14 @@ body.logged-in {
   img {
     position: relative;
     top: 2px;
-    margin-left: 35px;
+    margin-right: 40px;
     width: 30px;
   }
 
  .hamburger {
     position: relative;
     top: -30px;
-    margin-right: 35px;
+    margin-left: 35px;
     cursor: pointer;
     border-left: 3px solid #3c3c3c;
     padding-left: 20px;
@@ -115,9 +115,9 @@ body.logged-in {
 }
 
 .st-pusher {
- position: absolute;
- top: 0px;
- width: 100%;
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }
 
 /* page title */
@@ -913,11 +913,12 @@ article .button {
 }
 
 .swiper-container-3 {
- overflow: hidden;
- margin-top: 75px;
+  overflow: hidden;
+  margin-top: 75px;
 }
 
 .swiper-container-3 .swiper-slide {
+  width: 225px !important;
   position: relative;
   background: #ccc;
   height: 400px;
@@ -1110,7 +1111,7 @@ article .button {
 }
 
 .search-container {
-  position: absolute;
+  position: fixed;
   right: 50px;
   bottom: 0px;
   width: 300px;
@@ -1210,6 +1211,84 @@ article .button {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .notification ul {
+    width: 100%;
+    padding-bottom: 90px;
+  }
+
+  .articles {
+    overflow: visible !important;
+  }
+
+  article .button {
+    position: relative !important;
+    bottom: -15px !important;
+  }
+
+  .updates {
+    padding-left: 18px !important;
+
+    .title {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+
+  .letters {
+    display: none;
+  }
+
+  .contact > .columns {
+    margin: 5px 20px !important;
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .contact .large-8 {
+    width: 70%;
+  }
+
+  .contact .large-4 {
+    width: 30%;
+  }
+
+  .contact-container {
+    overflow: visible;
+    height: 100%;
+  }
+
+  .contacts .choice {
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+
+  .contacts button.back {
+   margin-top: 0px;
+  }
+
+  .contacts .contact-info {
+    padding: 20px 0px;
+  }
+
+  .contact-info .profile-logo {
+     position: relative !important;
+     top: -10px;
+     width: 185px;
+   }
+}
+
+@media only screen and (max-width: 1025px) {
+  .dashboard-menu {
+    display: none;
+  }
+
+  .Dashboard .st-pusher {
+    padding-top: 50px;
   }
 }
 

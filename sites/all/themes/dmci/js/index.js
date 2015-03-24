@@ -24,7 +24,7 @@ var swiper3 = new Swiper('.swiper-container-3', {
   slidesPerView: 4,
   centeredSlides: true,
   paginationClickable: true,
-  spaceBetween: 30,
+  spaceBetween: 10,
   grabCursor: true
 });
 

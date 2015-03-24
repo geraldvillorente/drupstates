@@ -39,7 +39,7 @@
   </div>
 </div>
 <div class="large-4 columns updates">
-  <div class="large-6 columns construction-updates ">
+  <div class="large-6 small-6 columns construction-updates">
     <div class="title"> Construction Updates </div>
     <div class="large-12" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>) center center; background-size: cover;"> </div>
 
@@ -47,7 +47,7 @@
 
     <div class="large-12" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>) center center; background-size: cover;"> </div>
   </div>
-  <div class="large-6 columns latest-news">
+  <div class="large-6 small-6 columns latest-news">
     <div class="title"> Latest News </div>
     <div class="large-12" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>) center center; background-size: cover;"> </div>
 

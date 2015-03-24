@@ -26,7 +26,7 @@ function dmci_preprocess_page(&$variables) {
   if ($nid == 1) {
     $variables['theme_hook_suggestions'][] = "page__selection";
     $variables['selections'] = array(
-      array(url('node/3', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
+      array(url('node/19', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
       array(url('node/11', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
     );
   } else if ($nid == 11) {
