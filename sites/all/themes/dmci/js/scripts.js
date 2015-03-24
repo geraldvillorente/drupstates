@@ -2,7 +2,7 @@
 
   Drupal.behaviors.STARTER = {
     attach: function(context, settings) {
-      // Get your Yeti started.
+      // Get your Yeti started...
     }
   };
 
