@@ -3,8 +3,10 @@
     <div class="contact-info">
       <img src="<?php print $logo; ?>" class="profile-logo">
       <div class="large-3 columns">
-        <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" />
-        <button class="right back"> EDIT PROFILE </button>
+        <center>
+          <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" />
+          <div><button class="back"> EDIT PROFILE </button></div>
+        </center>
       </div>
       <div class="large-9 columns">
         <p class="title"> Contact Information </p>

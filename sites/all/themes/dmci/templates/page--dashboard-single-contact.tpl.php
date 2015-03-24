@@ -15,7 +15,7 @@
   <div class="clear-both"></div>
   <div class="large-10 columns large-centered">
     <div class="contact-info">
-      <div class="large-3 columns"> <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" /> </div>
+      <div class="large-3 columns"><center> <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" /> </center></div>
       <div class="large-9 columns">
         <p class="title"> Contact Information </p>
         <div class="field row"> <div class="large-3 columns"> Name: </div>  <div class="large-9 columns">Maynard Cabalitan</div> </div>

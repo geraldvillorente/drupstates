@@ -61,20 +61,37 @@
  <div id="st-container" class="st-container">
  <div class="st-pusher">
   <nav class="st-menu st-effect-3" id="menu-3">
-    <ul>
-      <li><a class="icon" href="/history">History</a></li>
-      <li><a class="icon" href="/company-profile">Company Profile</a></li>
-      <li><a class="icon" href="/property-selection">Property Selection</a></li>
-      <li><a class="icon" href="/reservation">Reservation</a></li>
-      <li><a class="icon" href="/bpc-form">BPC</a></li>
+    <ul class="st-menu-ul">
+      <li class="li-title">
+        <span>Dashboard</span>
+        <ul>
+          <li><a class="icon" href="/news">News</a></li>
+          <li><a class="icon" href="/home">Home</a></li>
+          <li><a class="icon" href="/reservation-list">Reservation</a></li>
+          <li><a class="icon" href="/availability">Availability</a></li>
+          <li><a class="icon" href="/contacts">Contact</a></li>
+          <li><a class="icon" href="/profile">Profile</a></li>
+        </ul>
+      </li>
+
+      <li class="li-title">
+        <span>Presentation</span>
+        <ul>
+          <li><a class="icon" href="/history">History</a></li>
+          <li><a class="icon" href="/company-profile">Company Profile</a></li>
+          <li><a class="icon" href="/property-selection">Property Selection</a></li>
+          <li><a class="icon" href="/reservation">Reservation</a></li>
+          <li><a class="icon" href="/bpc-form">BPC</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 
   <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
-    <img src="<?php print $base_url_default_files . "dmci-icon.png"; ?>" class="left" />
+    <a href="<?php print url('node/1'); ?>"> <img src="<?php print $base_url_default_files . "dmci-icon.png"; ?>" class="right" /> </a>
     <div class="top-bar-section">
       <div id="st-trigger-effects" class="column">
-        <button data-effect="st-effect-3" class="hamburger right"> <li></li><li></li><li></li> </button>
+        <button data-effect="st-effect-3" class="hamburger left"> <li></li><li></li><li></li> </button>
       </div>
     </div>
   </nav>
@@ -112,6 +129,16 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
   <?php print _zurb_foundation_add_reveals(); ?>
+
+  <?php if ($parent_page == "Dashboard"): ?>
+    <div class="search-container">
+      <div class="search-overflow">
+        <div class="search"> <img src="<?php print $base_url_default_files . "search-icon.png"; ?>" /> </div>
+        <input type="text" placeholder="Search" class="form-search" />
+      </div>
+    </div>
+  <?php endif; ?>
+
   <script>
     (function ($, Drupal, window, document, undefined) {
       $(document).foundation();
@@ -121,9 +148,3 @@
 </div>
 </body>
 </html>
-
-<style>
-nav {
-
-}
-</style>

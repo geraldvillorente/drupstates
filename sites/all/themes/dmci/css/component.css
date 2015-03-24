@@ -1,8 +1,8 @@
 *,
 *:after,
 *::before {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+ 	box-sizing: border-box;
 }
 
 #st-trigger-effects button {
@@ -14,8 +14,26 @@
   padding-top: 10px;
 }
 
-.st-effect-3 > ul {
-  position: absolute;
+.st-menu-ul ul {
+  width: 100%;
+}
+
+.st-menu-ul li {
+  width: 100%;
+  padding-left: -15px;
+}
+
+.st-menu-ul .li-title {
+  padding-left: 15px;
+  padding-top: 20px;
+}
+
+.st-menu-ul span {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  margin-top: 25px;
   width: 100%;
 }
 
@@ -24,30 +42,30 @@ body,
 .st-container,
 .st-pusher,
 .st-content {
-	height: 100%;
+	 height: 100%;
 }
 
 .st-content {
-	overflow-y: scroll;
-	background: #f3efe0;
+	 overflow-y: scroll;
+	 background: #f3efe0;
 }
 
 .st-content,
 .st-content-inner {
-	position: relative;
+	 position: relative;
 }
 
 .st-container {
-	position: relative;
-	overflow-x: hidden;
+ 	position: relative;
+ 	overflow-x: hidden;
 }
 
 .st-pusher {
-	position: relative;
-	left: 0;
-	z-index: 99;
-	height: 100%;
-	-webkit-transition: -webkit-transform 0.5s;
+ 	position: relative;
+ 	left: 0;
+ 	z-index: 99;
+ 	height: 100%;
+ 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
 }
 
@@ -127,18 +145,19 @@ body,
 	display: block;
 	padding: 10px 25px;
 	outline: none;
-	box-shadow: inset 0 -1px rgba(0,0,0,0.2);
+	/*box-shadow: inset 0 -1px rgba(0,0,0,0.2);*/
 	color: #f3efe0;
 	text-transform: uppercase;
-	text-shadow: 0 0 1px rgba(255,255,255,0.1);
+	/*text-shadow: 0 0 1px rgba(255,255,255,0.1);*/
 	letter-spacing: 1px;
 	font-weight: 400;
+ font-size: 12px;
 	-webkit-transition: background 0.3s, box-shadow 0.3s;
 	transition: background 0.3s, box-shadow 0.3s;
 }
 
 .st-menu ul li:first-child a {
-	box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);
+	/*box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);*/
 }
 
 .st-menu ul li a:hover {
@@ -146,6 +165,7 @@ body,
 	box-shadow: inset 0 -1px rgba(0,0,0,0);
 	color: #fff;
  border-bottom: 0px !important;
+ text-decoration: none !important;
 }
 
 /* Individual effects */
