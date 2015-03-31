@@ -37,12 +37,22 @@ body {
   clear: both;
 }
 
+body.section-bpc-form {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('http://dmci.dev/sites/default/files/login-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .blurred-bg {
   position: absolute;
   width: 100%;
   height: 100%;
   background-image: url('http://dmci.dev/sites/default/files/login-bg.jpg');
   background-size: cover;
+  background-attachment: fixed;
 }
 
 body.logged-in {
@@ -81,7 +91,7 @@ body.logged-in {
 .top-bar {
   position: absolute;
   top: 0px;
-  z-index: 100;
+  z-index: 50;
   width: 100%;
   height: 35px;
   padding: 0px;
@@ -463,51 +473,181 @@ body.logged-in {
   }
 }
 
-.login-form.bpc {
-  margin-top: -8% !important;
-}
-
 .bpc {
-  .blurred-bg {
-    position: absolute;
-    top: 0px;
+  table {
+    width: 100%;
+    /*table-layout: fixed;*/
   }
 
-  .fields {
-    padding: 0px;
+  table .label {
+    padding: 1em;
+    text-align: right;
+    text-transform: uppercase;
+    color: #000;
+    font-size: 12px;
+    background: none;
+    display: block;
   }
 
-  .text p {
-    height: 32px;
+  table .highlight {
+   font-size: 12px;
+    text-transform: uppercase;
   }
 
-  p {
-    margin-bottom: 5px !important;
+  table .underline {
+    border-bottom-width: 1px;
+    border-color: #000;
+    border-bottom-style: double;
   }
 
-  button {
-    margin-top: 10px;
-    margin-left: 10px;
-    padding: 10px;
-    background: #00769B;
-    font-size: 24px !important;
+  table thead th {
+    text-align: right;
   }
 
-  .fields {
-    background: #FFD27E;
+  table tr td:nth-child(3) {
+    text-align: right;
   }
 
-  .adjustments {
-    position: relative;
-    left: 15px;
-    margin: 10px 0px;
+  table tr td:nth-child(3) {
     text-align: left;
   }
 
-  .cols3,
-  .cols2 {
-    position: relative;
-    z-index: 10;
+  .calc {
+    display: none;
+  }
+
+  .calc td {
+    text-align: right;
+  }
+
+  select {
+    margin-bottom: 0px;
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .important {
+   display: none;
+    .large-12 {
+      padding-top: 15px;
+      background: #fff;
+      width: 97%;
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    li {
+     list-style: none;
+    }
+  }
+
+  .child {
+    margin: 15px;
+  }
+}
+
+$one_br: #1ccdab;
+$two_br: #3498db;
+$three_br: #34495e;
+$stairs: #cccccc;
+
+.bldg {
+  .tile {
+    float: left;
+    margin: 1px 5px;
+  }
+
+  .room.one-br {
+    width: 35px;
+  }
+
+  .room > span {
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding-right: 5px;
+  }
+
+  .type.one-br .color,
+  .room.one-br {
+    background: $one_br;
+  }
+
+  .type.two-br .color,
+  .room.two-br {
+    background: $two_br;
+  }
+
+  .type.three-br .color,
+  .room.three-br {
+    background: $three_br;
+  }
+
+  .type.stairs .color,
+  .room.stairs {
+    background: $stairs;
+  }
+
+  .available {
+    span {
+      color: #fff !important;
+    }
+  }
+
+  .room {
+    width: 80px;
+    height: 80px;
+    text-align: right;
+    cursor: pointer;
+    span {
+      color: red;
+    }
+  }
+
+  .legend {
+    font-size: 12px;
+    text-transform: uppercase;
+    .color {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+    }
+
+    b {
+      margin-left: 25px;
+    }
+
+    .type {
+      margin: 10px 0px;
+    }
+  }
+
+  .hallway {
+    text-align: center;
+    font-size: 12px;
+    padding-top: 20px;
+  }
+
+  .text-center {
+    line-height: 20px;
+
+    div {
+     font-size: 12px;
+     font-weight: bold;
+    }
+  }
+
+  select {
+    font-size: 12px !important;
+    padding: 5px 10px;
+    margin-top: 10px;
+  }
+
+  .facing {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 15px;
   }
 }
 

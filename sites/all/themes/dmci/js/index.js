@@ -39,4 +39,82 @@ var swiper3 = new Swiper('.swiper-container-3', {
       $('.search-overflow').css({'top': '0px'});
     }
   })
+
+  var price = 0;
+
+  $('.bldg .available').click(function()
+  {
+    var type = $(this).data('type');
+    var unit = $(this).data('unit');
+    var facing = $(this).data('facing');
+    var area = $(this).data('area');
+    var balcony = $(this).data('balcony');
+    price = $(this).data('price');
+
+    var unit_selected = type +" / "+ unit +" "+ facing;
+    var unit_area = area + balcony;
+    $('#unit-selected').html(unit_selected);
+    $('#unit-area').html(unit_area + " sqm" +" ("+ area +" sqm + "+ balcony +" sqm balcony"+")");
+    $('#myModal').foundation('reveal', 'close');
+  })
+
+  $('#select-term').on('change', function()
+  {
+    var option_index = $(this)[0].selectedIndex;
+    var downpayment_percentage = $('.term').find('input').eq(option_index-1).data('downpayment');
+    var bank_percentage = $('.term').find('input').eq(option_index-1).data('bank');
+    $('.calc').show();
+
+    // Unit Price
+    $('#calc-unit-price-amount').html(accounting.formatNumber(price, 2));
+
+    // Regular Discount
+    var reg_discount = $(this).val();
+    var decimal_reg_discount = reg_discount / 100;
+    var reg_discount_amount = price * decimal_reg_discount;
+    $('#calc-reg-discount-label').html(accounting.formatNumber(reg_discount, 2) + "%")
+    $('#calc-reg-discount-amount').html(accounting.formatNumber(reg_discount_amount, 2));
+
+    // Net
+    var net = price - reg_discount_amount;
+    $('#calc-net-amount').html(accounting.formatNumber(net, 2));
+
+    // PDC
+    var pdc_discount = 2;
+    var decimal_pdc_discount = pdc_discount / 100;
+    var pdc_discount_amount = net * decimal_pdc_discount
+    $('#calc-pdc-discount-label').html(accounting.formatNumber(pdc_discount, 2) + "%");
+    $('#calc-pdc-discount-amount').html(accounting.formatNumber(pdc_discount_amount, 2));
+
+    // Total Price
+    var total_price = net - pdc_discount_amount;
+    $('#calc-total-price').html(accounting.formatNumber(total_price, 2));
+
+    // Divided in DP Period
+    var dp_discount = 10;
+    var decimal_dp_discount = dp_discount / 100;
+    var dp_discount_amount = total_price * decimal_dp_discount;
+    $('#calc-dp-period-label').html(accounting.formatNumber(dp_discount, 2) + "%");
+    $('#calc-dp-period-amount').html(accounting.formatNumber(dp_discount_amount, 2));
+
+    //  Downpayment
+    var downpayment = downpayment_percentage;
+    var decimal_downpayment = downpayment / 10;
+    var downpayment_amount = dp_discount_amount * decimal_downpayment;
+    $('#calc-downpayment-label').html(accounting.formatNumber(downpayment, 2) + "%");
+    $('#calc-downpayment-amount').html(accounting.formatNumber(downpayment_amount, 2));
+
+    // 1st Net Downpayment
+    $('#calc-net-downpayment-amount').html(accounting.formatNumber(downpayment_amount, 2));
+
+    // Less: Reservation Fee
+    var reservation_fee = 20000;
+    $('#reservation-fee').html(accounting.formatNumber(reservation_fee, 2));
+
+    // 2nd Net Downpayment
+    var downpayment_amount_2 = downpayment_amount - reservation_fee;
+    $('#calc-net-downpayment-amount-2').html(accounting.formatNumber(downpayment_amount_2, 2));
+
+    // $end = date('Y-m-d', strtotime('+5 years'));
+  })
 })(jQuery)
