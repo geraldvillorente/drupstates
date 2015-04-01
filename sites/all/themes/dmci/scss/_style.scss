@@ -474,6 +474,24 @@ body.logged-in {
 }
 
 .bpc {
+ .select-computation {
+   margin-top: 15px;
+   margin-bottom: 15px;
+   .columns {
+     background: #fff;
+     padding: 10px;
+     text-align: center;
+     margin: 1%;
+     width: 31%;
+     font-size: 12px;
+     cursor: pointer;
+     opacity: .5;
+   }
+
+   .active {
+     opacity: 1;
+   }
+ }
   table {
     width: 100%;
     /*table-layout: fixed;*/
@@ -527,17 +545,18 @@ body.logged-in {
   }
 
   .important {
-   display: none;
-    .large-12 {
-      padding-top: 15px;
-      background: #fff;
-      width: 97%;
-      font-size: 13px;
-      margin-bottom: 15px;
+    display: none;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    .columns {
+     padding-top: 15px !important;
+       background: #fff;
+       padding: 0px 40px;
     }
 
-    li {
-     list-style: none;
+    ol > li {
+      list-style-type: lower-alpha;
     }
   }
 
@@ -648,6 +667,14 @@ $stairs: #cccccc;
     font-weight: bold;
     letter-spacing: 2px;
     line-height: 15px;
+  }
+
+  .parking {
+    background: #ccc;
+  }
+
+  .tower-label {
+    text-transform: uppercase;
   }
 }
 

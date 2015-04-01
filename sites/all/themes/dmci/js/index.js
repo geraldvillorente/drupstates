@@ -42,6 +42,24 @@ var swiper3 = new Swiper('.swiper-container-3', {
 
   var price = 0;
 
+  // rfo, dp, spread
+  $('#rfo-date').html($('#rfo-date-php').val());
+  $('#end-of-dp').html($('#end-of-dp-php').val());
+  $('#month-spread').html($('#month-spread-php').val());
+
+  // Get the active computation sheet
+  var active = $('.select-computation .active').data('select');
+  $('#unit-selected').data('reveal-id', 'myModal' + active);
+
+  // Change modal depending on computation sheet selected
+  $(document).on('click', '.select-computation .columns', function(){
+    $('.select-computation .columns').removeClass('active');
+    $(this).addClass('active');
+    active = $(this).data('select');
+    $('#unit-selected').data('reveal-id', 'myModal' + active);
+  });
+
+  // Select a Unit for unit, parking
   $('.bldg .available').click(function()
   {
     var type = $(this).data('type');
@@ -49,21 +67,37 @@ var swiper3 = new Swiper('.swiper-container-3', {
     var facing = $(this).data('facing');
     var area = $(this).data('area');
     var balcony = $(this).data('balcony');
+    var unit_area = area + balcony;
     price = $(this).data('price');
 
-    var unit_selected = type +" / "+ unit +" "+ facing;
-    var unit_area = area + balcony;
-    $('#unit-selected').html(unit_selected);
-    $('#unit-area').html(unit_area + " sqm" +" ("+ area +" sqm + "+ balcony +" sqm balcony"+")");
-    $('#myModal').foundation('reveal', 'close');
-  })
+    if (active == "Unit") {
+      var unit_selected = type +" / "+ unit +" "+ facing;
+      $('#unit-selected').html(unit_selected);
+      $('#unit-area').html(unit_area + " sqm" +" ("+ area +" sqm + "+ balcony +" sqm balcony"+")");
+    } else if (active == "Parking") {
+      var unit_selected = unit +" "+ facing;
+      $('#unit-selected').html(unit_selected + " Number");
+      $('#unit-area').html(unit_area + " sqm");
+    }
+    $('#myModal'+active).foundation('reveal', 'close');
+  });
 
+  // Change Tower
+  $('#select-bldg').on('change', function()
+  {
+    var tower = $(this).val();
+    $('.tower-label').html(tower);
+  });
+
+  // Computation Sheet
   $('#select-term').on('change', function()
   {
+    $('.calc').show();
+    $('.important').show();
+
     var option_index = $(this)[0].selectedIndex;
     var downpayment_percentage = $('.term').find('input').eq(option_index-1).data('downpayment');
     var bank_percentage = $('.term').find('input').eq(option_index-1).data('bank');
-    $('.calc').show();
 
     // Unit Price
     $('#calc-unit-price-amount').html(accounting.formatNumber(price, 2));
@@ -115,6 +149,20 @@ var swiper3 = new Swiper('.swiper-container-3', {
     var downpayment_amount_2 = downpayment_amount - reservation_fee;
     $('#calc-net-downpayment-amount-2').html(accounting.formatNumber(downpayment_amount_2, 2));
 
-    // $end = date('Y-m-d', strtotime('+5 years'));
+    // Payable In
+    var month_spread = $('#month-spread-php').val();
+    var payable_in_amount = downpayment_amount_2 / month_spread;
+    $('#calc_payable_in_label').html(month_spread);
+    $('.calc_payable_in_amount').html(accounting.formatNumber(payable_in_amount, 2));
+
+    // Balance
+    var bank = bank_percentage;
+    var decimal_bank = bank / 100;
+    var balance = total_price * decimal_bank;
+    $('#balance_label').html(accounting.formatNumber(bank_percentage, 2) + "%");
+    $('#balance_amount').html(accounting.formatNumber(balance, 2));
+
+    // Total Contract Price
+    $('.total_contract_price_amount').html(accounting.formatNumber(total_price, 2));
   })
 })(jQuery)
