@@ -228,7 +228,7 @@ print '<input type="hidden" value="Mar - 19" id="rfo-date-php">';
               <th></th>
               <th></th>
               <th>Unit</th>
-              <th>Closing Free</th>
+              <th>Closing Fee</th>
               <th>Total</th>
             </tr>
           </thead>

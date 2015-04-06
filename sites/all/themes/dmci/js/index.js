@@ -57,6 +57,13 @@ var swiper3 = new Swiper('.swiper-container-3', {
     $(this).addClass('active');
     active = $(this).data('select');
     $('#unit-selected').data('reveal-id', 'myModal' + active);
+
+    $('#select-bldg')[0].selectedIndex = 0;
+    $('#unit-selected').html("-- Select Unit--");
+    $('#unit-area').html("");
+    $('#select-term')[0].selectedIndex = 0;
+    $('.calc').hide();
+    $('.important').hide();
   });
 
   // Select a Unit for unit, parking
