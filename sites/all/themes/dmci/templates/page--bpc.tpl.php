@@ -1,4 +1,5 @@
 <?php
+// Static RFO
 $str1 = strtotime('now');
 $str2 = strtotime('2019-06-01');
 $year1 = date('Y', $str1);
@@ -12,69 +13,122 @@ print '<input type="hidden" value="Mar - 19" id="rfo-date-php">';
 ?>
 
 <div id="myModalUnit" class="reveal-modal bldg" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <div class="row"><div class="left"><i><b>BUILDING UNIT</b></i></div></div>
-  <center class="facing"><div>FACING</div> ANTIPOLO / MARIKINA <div>VIEW</div></center>
-  <div class="floor-plan-layout">
-    <p>
-      <div class="room three-br available tile" data-type="2 Bedroom" data-unit="1201" data-facing="Facing Amenities" data-area="45" data-balcony="8.5" data-price="3400000"><span>1201</span></div>
-      <div class="room two-br tile"><span>1202</span></div>
-      <div class="room blank tile"><span></span></div>
-      <div class="room two-br tile"><span>1203</span></div>
-      <div class="room two-br tile"><span>1204</span></div>
-      <div class="room two-br available tile"><span>1205</span></div>
-      <div class="room two-br tile"><span>1206</span></div>
-      <div class="room two-br tile"><span>1207</span></div>
-      <div class="room two-br available tile"><span>1208</span></div>
-      <div class="room two-br available tile"><span>1209</span></div>
-      <div class="room three-br available tile"><span>1210</span></div>
-      <div class="stair tile"></div>
-    </p>
-    <div class="clear-both hallway"> <b>HALLWAY</b> </div>
-    <p>
-      <div class="room three-br tile"><span>1211</span></div>
-      <div class="room two-br available tile"><span>1212</span></div>
-      <div class="room two-br tile"><span>1213</span></div>
-      <div class="room two-br tile"><span>1214</span></div>
-      <div class="room two-br tile"><span>1215</span></div>
-      <div class="room two-br available tile"><span>1216</span></div>
-      <div class="room two-br tile"><span>1217</span></div>
-      <div class="room one-br tile"><span>1218</span></div>
-      <div class="room one-br available tile"><span>1219</span></div>
-      <div class="room blank tile"></div>
-      <div class="room one-br tile"><span>1220</span></div>
-      <div class="room one-br tile"><span>1221</span></div>
-      <div class="room three-br available tile"><span>1222</span></div>
-    </p>
-    <div class="clear-both"></div>
-    <center class="facing"><p><div>FACING AMENITIES</div> MANDALUYONG VIEW</p></center>
-    <div class="legend large-3 columns">
-      <div class="type one-br"><span class="color">&nbsp;</span><b>1 Bedroom</b></div>
-      <div class="type two-br"><span class="color">&nbsp;</span><b>2 Bedroom</b></div>
-      <div class="type three-br"><span class="color">&nbsp;</span><b>3 Bedroom</b></div>
-      <div class="type stairs"><span class="color">&nbsp;</span><b>Stairs</b></div>
+  <div class="visual">
+    <div class="row"><div class="left"><i><b>BUILDING UNIT</b></i></div></div>
+    <center class="facing"><div>FACING</div> ANTIPOLO / MARIKINA <div>VIEW</div></center>
+    <div class="floor-plan-layout">
+      <p>
+        <div class="room three-br available tile" data-type="2 Bedroom" data-unit="1201" data-facing="Facing Amenities" data-area="45" data-balcony="8.5" data-price="3400000"><span>1201</span></div>
+        <div class="room two-br tile"><span>1202</span></div>
+        <div class="room blank tile"><span></span></div>
+        <div class="room two-br tile"><span>1203</span></div>
+        <div class="room two-br tile"><span>1204</span></div>
+        <div class="room two-br available tile"><span>1205</span></div>
+        <div class="room two-br tile"><span>1206</span></div>
+        <div class="room two-br tile"><span>1207</span></div>
+        <div class="room two-br available tile"><span>1208</span></div>
+        <div class="room two-br available tile"><span>1209</span></div>
+        <div class="room three-br available tile"><span>1210</span></div>
+        <div class="stair tile"></div>
+      </p>
+      <div class="clear-both hallway"> <b>HALLWAY</b> </div>
+      <p>
+        <div class="room three-br tile"><span>1211</span></div>
+        <div class="room two-br available tile"><span>1212</span></div>
+        <div class="room two-br tile"><span>1213</span></div>
+        <div class="room two-br tile"><span>1214</span></div>
+        <div class="room two-br tile"><span>1215</span></div>
+        <div class="room two-br available tile"><span>1216</span></div>
+        <div class="room two-br tile"><span>1217</span></div>
+        <div class="room one-br tile"><span>1218</span></div>
+        <div class="room one-br available tile"><span>1219</span></div>
+        <div class="room blank tile"></div>
+        <div class="room one-br tile"><span>1220</span></div>
+        <div class="room one-br tile"><span>1221</span></div>
+        <div class="room three-br available tile"><span>1222</span></div>
+      </p>
+      <div class="clear-both"></div>
+      <center class="facing"><p><div>FACING AMENITIES</div> MANDALUYONG VIEW</p></center>
+      <div class="legend large-3 columns">
+        <div class="type one-br"><span class="color">&nbsp;</span><b>1 Bedroom</b></div>
+        <div class="type two-br"><span class="color">&nbsp;</span><b>2 Bedroom</b></div>
+        <div class="type three-br"><span class="color">&nbsp;</span><b>3 Bedroom</b></div>
+        <div class="type stairs"><span class="color">&nbsp;</span><b>Stairs</b></div>
+      </div>
+      <div class="large-6 text-center columns">
+        <h3 class="tower-label"></h3>
+        <div>12TH FLOOR PLAN</div>
+        <div>2013 NOV 12</div>
+        <div>DESIGN - 12 - 11 - 005</div>
+      </div>
+      <div class="large-3 columns">
+        <select>
+          <option> 1ST FLOOR </option>
+          <option> 2ND FLOOR </option>
+          <option> 3RD FLOOR </option>
+          <option> 4TH FLOOR </option>
+          <option> 5TH FLOOR </option>
+          <option> 6TH FLOOR </option>
+          <option> 7TH FLOOR </option>
+          <option> 8TH FLOOR </option>
+          <option> 9TH FLOOR </option>
+          <option> 10th FLOOR </option>
+          <option> 11th FLOOR </option>
+          <option selected> 12th FLOOR </option>
+        </select>
+        <p class="table-units"><a href="#"> list of available units </a></p>
+      </div>
     </div>
-    <div class="large-6 text-center columns">
-      <h3 class="tower-label"></h3>
-      <div>12TH FLOOR PLAN</div>
-      <div>2013 NOV 12</div>
-      <div>DESIGN - 12 - 11 - 005</div>
-    </div>
-    <div class="large-3 columns">
-      <select>
-        <option> 1ST FLOOR </option>
-        <option> 2ND FLOOR </option>
-        <option> 3RD FLOOR </option>
-        <option> 4TH FLOOR </option>
-        <option> 5TH FLOOR </option>
-        <option> 6TH FLOOR </option>
-        <option> 7TH FLOOR </option>
-        <option> 8TH FLOOR </option>
-        <option> 9TH FLOOR </option>
-        <option> 10th FLOOR </option>
-        <option> 11th FLOOR </option>
-        <option selected> 12th FLOOR </option>
-      </select>
-    </div>
+  </div>
+  <div class="clear-both"></div>
+  <div class="available-units">
+    <p class="table-back"><a href="#">Back</a></p>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th>Type</th>
+          <th>Floor</th>
+          <th>Tower</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="available three-br" data-type="2 Bedroom" data-unit="1201" data-facing="Facing Amenities" data-area="45" data-balcony="8.5" data-price="3400000">
+          <td>1201</td>
+          <td>3 Bedroom</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+
+        <tr class="available one-br">
+          <td>1205</td>
+          <td>2 Bedroom</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+
+        <tr class="available two-br">
+          <td>1208</td>
+          <td>2 Bedroom</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+
+        <tr class="available two-br">
+          <td>1209</td>
+          <td>2 Bedroom</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+
+        <tr class="available three-br">
+          <td>1210</td>
+          <td>3 Bedroom</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
@@ -130,6 +184,7 @@ print '<input type="hidden" value="Mar - 19" id="rfo-date-php">';
         <option> 4TH FLOOR </option>
         <option selected> 5TH FLOOR </option>
       </select>
+      <p><a href="#"> view available units </a></p>
     </div>
   </div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>

@@ -571,6 +571,17 @@ $three_br: #34495e;
 $stairs: #cccccc;
 
 .bldg {
+  .available-units {
+    display: none;
+    td {
+      padding-top: 17px;
+      padding-bottom: 17px;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
   .tile {
     float: left;
     margin: 1px 5px;
@@ -588,17 +599,20 @@ $stairs: #cccccc;
   }
 
   .type.one-br .color,
-  .room.one-br {
+  .room.one-br,
+  tr.one-br {
     background: $one_br;
   }
 
   .type.two-br .color,
-  .room.two-br {
+  .room.two-br,
+  tr.two-br {
     background: $two_br;
   }
 
   .type.three-br .color,
-  .room.three-br {
+  .room.three-br,
+  tr.three-br {
     background: $three_br;
   }
 
