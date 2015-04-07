@@ -34,7 +34,7 @@ print '<input type="hidden" value="Mar - 19" id="rfo-date-php">';
       <div class="clear-both hallway"> <b>HALLWAY</b> </div>
       <p>
         <div class="room three-br tile"><span>1211</span></div>
-        <div class="room two-br available tile"><span>1212</span></div>
+        <div class="room two-br available tile" data-type="2 Bedroom" data-unit="1212" data-facing="Facing Amenities" data-area="45" data-balcony="8.5" data-price="3150000"><span>1212</span></div>
         <div class="room two-br tile"><span>1213</span></div>
         <div class="room two-br tile"><span>1214</span></div>
         <div class="room two-br tile"><span>1215</span></div>
@@ -76,13 +76,13 @@ print '<input type="hidden" value="Mar - 19" id="rfo-date-php">';
           <option> 11th FLOOR </option>
           <option selected> 12th FLOOR </option>
         </select>
-        <p class="table-units"><a href="#"> list of available units </a></p>
+        <button class="table-units">list of available units</button>
       </div>
     </div>
   </div>
   <div class="clear-both"></div>
   <div class="available-units">
-    <p class="table-back"><a href="#">Back</a></p>
+    <button class="table-back">Back</button>
     <table width="100%">
       <thead>
         <tr>
@@ -134,58 +134,104 @@ print '<input type="hidden" value="Mar - 19" id="rfo-date-php">';
 </div>
 
 <div id="myModalParking" class="reveal-modal bldg" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <div class="row"><div class="left"><i><b>PARKING AREA</b></i></div></div>
-  <center class="facing"><div>FACING</div> ANTIPOLO / MARIKINA <div>VIEW</div></center>
-  <div class="floor-plan-layout">
-    <p>
-      <div class="room parking available tile" data-type="" data-unit="501" data-facing="Parking" data-area="5" data-balcony="0" data-price="740000"><span>1201</span></div>
-      <div class="room parking tile"><span>1202</span></div>
-      <div class="room parking tile"><span>1203</span></div>
-      <div class="room parking tile"><span>1204</span></div>
-      <div class="room parking tile"><span>1205</span></div>
-      <div class="room parking available tile"><span>1206</span></div>
-      <div class="room parking tile"><span>1207</span></div>
-      <div class="room parking tile"><span>1208</span></div>
-      <div class="room parking available tile"><span>1209</span></div>
-      <div class="room parking available tile"><span>1210</span></div>
-      <div class="room parking available tile"><span>1211</span></div>
-      <div class="stair tile"></div>
-    </p>
-    <div class="clear-both hallway"></div>
-    <p>
-      <div class="room parking tile"><span>1211</span></div>
-      <div class="room parking available tile"><span>1212</span></div>
-      <div class="room parking tile"><span>1213</span></div>
-      <div class="room parking tile"><span>1214</span></div>
-      <div class="room parking tile"><span>1215</span></div>
-      <div class="room parking available tile"><span>1216</span></div>
-      <div class="room parking tile"><span>1217</span></div>
-      <div class="room parking tile"><span>1218</span></div>
-      <div class="room parking available tile"><span>1219</span></div>
-      <div class="room parking tile"><span>1220</span></div>
-      <div class="room parking tile"><span>1221</span></div>
-    </p>
-    <div class="clear-both"></div>
-    <center class="facing"><p><div>FACING AMENITIES</div> MANDALUYONG VIEW</p></center>
-    <div class="legend large-3 columns">
-      &nbsp;
+  <div class="visual">
+    <div class="row"><div class="left"><i><b>PARKING AREA</b></i></div></div>
+    <center class="facing"><div>FACING</div> ANTIPOLO / MARIKINA <div>VIEW</div></center>
+    <div class="floor-plan-layout">
+      <p>
+        <div class="room parking available tile" data-type="" data-unit="501" data-facing="Parking" data-area="5" data-balcony="0" data-price="740000"><span>1201</span></div>
+        <div class="room parking tile"><span>1202</span></div>
+        <div class="room parking tile"><span>1203</span></div>
+        <div class="room parking tile"><span>1204</span></div>
+        <div class="room parking tile"><span>1205</span></div>
+        <div class="room parking available tile"><span>1206</span></div>
+        <div class="room parking tile"><span>1207</span></div>
+        <div class="room parking tile"><span>1208</span></div>
+        <div class="room parking available tile"><span>1209</span></div>
+        <div class="room parking available tile"><span>1210</span></div>
+        <div class="room parking available tile"><span>1211</span></div>
+        <div class="stair tile"></div>
+      </p>
+      <div class="clear-both hallway"></div>
+      <p>
+        <div class="room parking tile"><span>1211</span></div>
+        <div class="room parking available tile"><span>1212</span></div>
+        <div class="room parking tile"><span>1213</span></div>
+        <div class="room parking tile"><span>1214</span></div>
+        <div class="room parking tile"><span>1215</span></div>
+        <div class="room parking available tile"><span>1216</span></div>
+        <div class="room parking tile"><span>1217</span></div>
+        <div class="room parking tile"><span>1218</span></div>
+        <div class="room parking available tile"><span>1219</span></div>
+        <div class="room parking tile"><span>1220</span></div>
+        <div class="room parking tile"><span>1221</span></div>
+      </p>
+      <div class="clear-both"></div>
+      <center class="facing"><p><div>FACING AMENITIES</div> MANDALUYONG VIEW</p></center>
+      <div class="legend large-3 columns">
+        &nbsp;
+      </div>
+      <div class="large-6 text-center columns">
+        <h3 class="tower-label"></h3>
+        <div>5TH FLOOR PLAN</div>
+        <div>2013 NOV 12</div>
+        <div>DESIGN - 12 - 11 - 005</div>
+      </div>
+      <div class="large-3 columns">
+        <select>
+          <option> 1ST FLOOR </option>
+          <option> 2ND FLOOR </option>
+          <option> 3RD FLOOR </option>
+          <option> 4TH FLOOR </option>
+          <option selected> 5TH FLOOR </option>
+        </select>
+        <button class="table-units">list of available units</button>
+      </div>
     </div>
-    <div class="large-6 text-center columns">
-      <h3 class="tower-label"></h3>
-      <div>5TH FLOOR PLAN</div>
-      <div>2013 NOV 12</div>
-      <div>DESIGN - 12 - 11 - 005</div>
-    </div>
-    <div class="large-3 columns">
-      <select>
-        <option> 1ST FLOOR </option>
-        <option> 2ND FLOOR </option>
-        <option> 3RD FLOOR </option>
-        <option> 4TH FLOOR </option>
-        <option selected> 5TH FLOOR </option>
-      </select>
-      <p><a href="#"> view available units </a></p>
-    </div>
+  </div>
+  <div class="clear-both"></div>
+  <div class="available-units">
+    <button class="table-back">Back</button>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th>Floor</th>
+          <th>Tower</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="available" data-type="" data-unit="501" data-facing="Parking" data-area="5" data-balcony="0" data-price="740000">
+          <td>1201</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+
+        <tr class="available">
+          <td>1205</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+
+        <tr class="available">
+          <td>1208</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+
+        <tr class="available">
+          <td>1209</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+
+        <tr class="available">
+          <td>1210</td>
+          <td>12th Floor</td>
+          <td>West Tower</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
