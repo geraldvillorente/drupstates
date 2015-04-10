@@ -78,7 +78,6 @@
         <span>Presentation</span>
         <ul>
           <li><a class="icon" href="/history">History</a></li>
-          <li><a class="icon" href="/company-profile">Company Profile</a></li>
           <li><a class="icon" href="/property-selection">Property Selection</a></li>
           <li><a class="icon" href="/reservation">Reservation</a></li>
           <li><a class="icon" href="/bpc-form">BPC</a></li>

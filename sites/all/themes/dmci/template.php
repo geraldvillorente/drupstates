@@ -41,6 +41,7 @@ function dmci_preprocess_page(&$variables) {
     $variables['reservation_form'] = $block_reservationform['content'];
   } else if ($nid == 16) {
     $variables['theme_hook_suggestions'][] = "page__bpc";
+    drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/accounting.js', array('scope' => 'footer'));
   } else if ($nid == 17) {
     $variables['theme_hook_suggestions'][] = "page__thankyou";
   } else if ($nid == 19) {
@@ -59,7 +60,6 @@ function dmci_preprocess_page(&$variables) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_availability_room";
   } else if ($nid == 26) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_availability";
-    drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/foundation/foundation.reveal.js', array('scope' => 'footer'));
   }
 
   drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/swiper.min.css');
@@ -69,6 +69,7 @@ function dmci_preprocess_page(&$variables) {
   drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/lightbox.js', array('scope' => 'footer'));
   drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/index.js', array('scope' => 'footer'));
   drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/foundation/foundation.topbar.js', array('scope' => 'footer'));
+  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/foundation/foundation.reveal.js', array('scope' => 'footer'));
   drupal_add_js('(function($){ $(document).foundation(); })(jQuery)', array('type' => 'inline', 'scope' => 'footer'));
 
   // Menu
