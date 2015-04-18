@@ -8959,3 +8959,9 @@ article .button {
     width: 1260px;
   }
 }
+
+/* Bootstrap admin menu fix */
+.logged-in #admin-toolbar ul.menu li a,
+.logged-in div#admin-toolbar.vertical div.admin-tab {
+  height: 26px;
+}

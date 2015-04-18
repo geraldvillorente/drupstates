@@ -41,7 +41,7 @@
  * @see template_process()
  */
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html ng-app="dmci">
 <!-- Sorry no IE7 support! -->
 <!-- @see http://foundation.zurb.com/docs/index.html#basicHTMLMarkup -->
 
@@ -56,7 +56,7 @@
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
    <![endif]-->
  </head>
- <body class="<?php print $classes. " ".$parent_page; ?>" <?php print $attributes;?>>
+ <body ng-controller="dmciController" "class="<?php print $classes. " ".$parent_page; ?>" <?php print $attributes;?>>
 
  <div id="st-container" class="st-container">
  <div class="st-pusher">
