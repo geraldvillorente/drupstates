@@ -2,7 +2,11 @@
   Drupal.behaviors.DMCI = {
     attach: function (context, settings) {
 
-     function compute_sheet(price, $this) {
+      $('.close-approval').click(function() {
+        $('.approval').foundation('reveal', 'close');
+      })
+
+      function compute_sheet(price, $this) {
         $('.calc').show();
         $('.important').show();
 
