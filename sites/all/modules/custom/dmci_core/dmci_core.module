@@ -6,7 +6,7 @@
  */
 function dmci_core_user_login(&$edit, $account) {
 	 // $edit['redirect'] = "node/1";
-  // $_GET['destination'] = 'node/1';
+  $_GET['destination'] = 'node/1';
 }
 
 /**
