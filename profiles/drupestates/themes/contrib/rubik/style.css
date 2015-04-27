@@ -1,12 +1,7 @@
 body,
 input,
 textarea,
-select,
-.ui-widget,
-.ui-widget input,
-.ui-widget select,
-.ui-widget textarea,
-.ui-widget button { font-family:"Lucida","Lucida Grande","Trebuchet MS",Tahoma,Verdana,sans-serif; }
+select { font-family:"Lucida","Lucida Grande","Trebuchet MS",Tahoma,Verdana,sans-serif; }
 
 html { overflow-y:scroll; }
 
@@ -54,9 +49,7 @@ a {
  */
 .compact-link a,
 input.teaser-button,
-input.form-submit,
-a.button,
-.form-actions #edit-cancel {
+input.form-submit {
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
   }
@@ -65,9 +58,7 @@ a.button,
  * "Popped" elements ==================================================
  */
 input.teaser-button,
-input.form-submit,
-a.button,
-.form-actions #edit-cancel {
+input.form-submit {
   box-shadow:#ddd 0px 1px 1px;
   -moz-box-shadow:#ddd 0px 1px 1px;
   -webkit-box-shadow:#ddd 0px 1px 1px;
@@ -105,6 +96,7 @@ table th {
 #branding .breadcrumb {
   padding:0px;
   float:left;
+  text-transform:uppercase;
   font-weight:normal;
   }
 
@@ -123,8 +115,8 @@ table th {
   #branding .breadcrumb-depth-7 { z-index:3; }
   #branding .breadcrumb-depth-8 { z-index:2; }
 
-  #branding .breadcrumb-link > a,
-  #branding .breadcrumb-link > strong {
+  #branding .breadcrumb a,
+  #branding .breadcrumb strong {
     color:#fff;
     font-weight:normal;
     float:left;
@@ -186,7 +178,7 @@ table th {
  * Tabs ===============================================================
  */
 .tabs {
-  float:right;
+  position:absolute;
   right:0px;
   }
 
@@ -253,12 +245,12 @@ div.pager {
 .pager li.pager-current span,
 .primary-tabs li.active a {
   color:#fff;
-  text-shadow:#38a 0px 1px 0px;
+  text-shadow:#38a 0px 1px 0px;  
   }
 
 /* Secondary tabs, nested */
 .secondary-tabs {
-  min-width:150px;
+  min-width:100px;
   float:left;
   position:relative;
   margin:5px 5px 5px 0px;
@@ -309,21 +301,6 @@ ul.secondary-tabs li a {
     -webkit-border-radius:3px 3px 0px 0px;
     }
 
-ul.secondary.tabs {
-    position: static;
-    float: right;
-    font-size: 0.923em;
-    padding: 0 3px 5px;
-    line-height: 1.385em;
-    overflow: hidden;
-    background-color: #fff;
-    }
-
-  ul.secondary.tabs li {
-    margin: 0 5px;
-    float: none;
-    display: inline;
-    }
 /**
  * Content ============================================================
  */
@@ -337,10 +314,6 @@ div.node {
   background:#fff url(images/vrule.png) 65% 0% repeat-y;
   margin:0px 0px 10px;
   }
-
-/* Make large images display within the parent container. This will prevent
-messing up the layout if a wide image needs to be displayed in content. */
-#page img { max-width: 100%; }
 
 #help-text .column-main .column-wrapper,
 .help-page .column-main .column-wrapper,
@@ -412,66 +385,7 @@ div.node .column-side .column-wrapper {
   font-size:16px;
   }
 
-/**
- * Fixes for other modules ===============================================
- */
-/* Fix rules action links. */
-.rules-elements-table ul.rules-operations a {
-  text-shadow: none;
-  color: #666;
-}
-/* Fix the position of Rules table drag toggle. It uses "position: absolute", so
-it is necessary to set "position: relative" to the parent, so that the button
-stays in the same frame. */
-#rules-form-wrapper {
-  position: relative;
-}
-/* Fix the padding of Rules table drag toggle. Out of the box it is optimized
-for display in table headers, while in Rules it is displayed outside of the
-tables, in the same line as table heading. */
-#rules-form-wrapper .rules-elements-table .tabledrag-toggle-weight-wrapper {
-  padding-top: 0;
-  padding-right: 0;
-}
-/* Views exposed filters forms. */
-div.views-exposed-form {
-  margin-bottom: 20px;
-}
-div.views-exposed-form div.form-item {
-  border: 0;
-  padding: 0;
-}
-div.views-exposed-form div.views-submit-button {
-  margin-right: 1em;
-}
-div.views-exposed-form input.form-text,
-div.views-exposed-form select.form-select,
-div.views-exposed-form input.form-autocomplete {
-  height: 28px;
-}
-/* Module filter "clear" link. */
-.module-filter-clear a {
-  margin: 3px 0 0 -35px;
-}
-
-/* Fix Workbench Moderation links. */
-.view-workbench-moderation tbody .views-field-moderation-actions li {
-  float: none;
-  margin-bottom: 5px;
-  margin-right: 3px;
-  overflow: auto;
-}
-.view-workbench-moderation tbody .views-field-moderation-actions li a {
-  background-color: #7bc;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  color: #fff;
-  display: block;
-  padding: 0 7px;
-  text-shadow: #38a 0px 1px 0px;
-}
-.view-workbench-moderation tbody .views-field-moderation-actions li a:hover {
-  background-color: #52a8be;
-  color: #fff;
+p {
+  margin:1em 0 !important;
+  clear:both;
 }

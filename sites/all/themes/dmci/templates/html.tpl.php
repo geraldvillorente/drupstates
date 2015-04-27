@@ -41,7 +41,7 @@
  * @see template_process()
  */
 ?>
-<!DOCTYPE html>
+<!DOCTYPE html ng-app="dmci">
 <!-- Sorry no IE7 support! -->
 <!-- @see http://foundation.zurb.com/docs/index.html#basicHTMLMarkup -->
 
@@ -53,10 +53,10 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <!--[if lt IE 9]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
    <![endif]-->
  </head>
- <body class="<?php print $classes. " ".$parent_page; ?>" <?php print $attributes;?>>
+ <body ng-controller="dmciController" "class="<?php print $classes. " ".$parent_page; ?>" <?php print $attributes;?>>
 
  <div id="st-container" class="st-container">
  <div class="st-pusher">
@@ -65,8 +65,8 @@
       <li class="li-title">
         <span>Dashboard</span>
         <ul>
-          <li><a class="icon" href="/news">News</a></li>
           <li><a class="icon" href="/home">Home</a></li>
+          <li><a class="icon" href="/news">News</a></li>
           <li><a class="icon" href="/reservation-list">Reservation</a></li>
           <li><a class="icon" href="/availability">Availability</a></li>
           <li><a class="icon" href="/contacts">Contact</a></li>
@@ -110,8 +110,8 @@
   <?php else: ?>
     <div class="dashboard-menu">
       <ul>
-        <li id="news"> <a href="news"> News </a> </li>
         <li id="home"> <a href="home"> Home </a> </li>
+        <li id="news"> <a href="news"> News </a> </li>
         <li id="reservation"> <a href="reservation-list"> Reservation </a> </li>
         <li id="availability"> <a href="availability"> Availability </a> </li>
         <li id="contacts"> <a href="contacts"> Contacts </a> </li>

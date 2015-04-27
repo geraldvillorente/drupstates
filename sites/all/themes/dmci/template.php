@@ -1,25 +1,30 @@
 <?php
+/**
+ * @file
+ * DMCI template.php file.
+ */
 
 /**
  * Implements template_preprocess_html().
  *
  */
 function dmci_preprocess_html(&$variables) {
-  GLOBAL $base_url;
+  global $base_url;
   $menu_trail = menu_get_active_trail();
-  @$parent_page = menu_link_load($menu_trail[1]['mlid']);
+  $parent_page = menu_link_load($menu_trail[1]['mlid']);
   $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
   $variables['parent_page'] = $parent_page['link_title'];
-  @$variables['current_page'] = $variables['head_title_array']['title'];
+  $variables['current_page'] = $variables['head_title_array']['title'];
 }
+
 
 /**
  * Implements template_preprocess_page
  *
  */
 function dmci_preprocess_page(&$variables) {
-  GLOBAL $base_url;
-  $nid = @$variables['node']->nid;
+  global $base_url;
+  $nid = $variables['node']->nid;
 
   $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
 
@@ -29,66 +34,81 @@ function dmci_preprocess_page(&$variables) {
       array(url('node/19', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
       array(url('node/11', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
     );
-  } else if ($nid == 11) {
+  }
+  else if ($nid == 11) {
     $variables['theme_hook_suggestions'][] = "page__company";
-  } else if ($nid == 6) {
+  }
+  else if ($nid == 6) {
     $variables['theme_hook_suggestions'][] = "page__property";
-  } else if ($nid == 12) {
+  }
+  else if ($nid == 12) {
     $variables['theme_hook_suggestions'][] = "page__bpc";
-  } else if ($nid == 15) {
+  }
+  else if ($nid == 15) {
     $block_reservationform = module_invoke('webform', 'block_view', 'client-block-15');
     $variables['theme_hook_suggestions'][] = "page__reservation";
     $variables['reservation_form'] = $block_reservationform['content'];
-  } else if ($nid == 16) {
+  }
+  else if ($nid == 16) {
     $variables['theme_hook_suggestions'][] = "page__bpc";
     drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/accounting.js', array('scope' => 'footer'));
-  } else if ($nid == 17) {
+  }
+  else if ($nid == 17) {
     $variables['theme_hook_suggestions'][] = "page__thankyou";
-  } else if ($nid == 19) {
+  }
+  else if ($nid == 19) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_news";
-  } else if ($nid == 20) {
+  }
+  else if ($nid == 20) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_home";
-  } else if ($nid == 21) {
+  }
+  else if ($nid == 21) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_contacts";
-  } else if ($nid == 22) {
+  }
+  else if ($nid == 22) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_single_contact";
-  } else if ($nid == 23) {
+  }
+  else if ($nid == 23) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_reservation";
-  } else if ($nid == 24) {
+  }
+  else if ($nid == 24) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_profile";
-  } else if ($nid == 25) {
+  }
+  else if ($nid == 25) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_availability_room";
-  } else if ($nid == 26) {
+  }
+  else if ($nid == 26) {
     $variables['theme_hook_suggestions'][] = "page__dashboard_availability";
   }
 
-  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/swiper.min.css');
-  drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/swiper.min.js', array('scope' => 'footer'));
-  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/screen.css');
-  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/lightbox.css');
-  drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/lightbox.js', array('scope' => 'footer'));
-  drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/index.js', array('scope' => 'footer'));
-  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/foundation/foundation.topbar.js', array('scope' => 'footer'));
-  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/foundation/foundation.reveal.js', array('scope' => 'footer'));
+  $theme = path_to_theme();
+
+  drupal_add_css($theme . '/css/swiper.min.css');
+  drupal_add_css($theme . '/css/screen.css');
+  drupal_add_css($theme . '/css/lightbox.css');
+  drupal_add_js($theme . '/js/swiper.min.js', array('scope' => 'footer'));
+  drupal_add_js($theme . '/js/lightbox.js', array('scope' => 'footer'));
+  drupal_add_js($theme . '/js/index.js', array('scope' => 'footer'));
+  drupal_add_js($theme . '/js/foundation/foundation.topbar.js', array('scope' => 'footer'));
+  drupal_add_js($theme . '/js/foundation/foundation.reveal.js', array('scope' => 'footer'));
   drupal_add_js('(function($){ $(document).foundation(); })(jQuery)', array('type' => 'inline', 'scope' => 'footer'));
 
-  // Menu
-  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/component.css');
-  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/icons.css');
-  drupal_add_css(drupal_get_path('theme', 'dmci') . '/css/normalize.css');
+  // Menu.
+  drupal_add_css($theme . '/css/component.css');
+  drupal_add_css($theme . '/css/icons.css');
+  drupal_add_css($theme . '/css/normalize.css');
 
-  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/classie.js', array('scope' => 'footer'));
-  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/modernizr.custom.js', array('scope' => 'footer'));
-  drupal_add_js(drupal_get_path('theme', 'dmci'). '/js/sidebarEffects.js', array('scope' => 'footer'));
-
+  drupal_add_js($theme . '/js/classie.js', array('scope' => 'footer'));
+  drupal_add_js($theme . '/js/modernizr.custom.js', array('scope' => 'footer'));
+  drupal_add_js($theme . '/js/sidebarEffects.js', array('scope' => 'footer'));
 }
 
+
 /**
- * Implements template_preprocess_node
- *
+ * Implements template_preprocess_node().
  */
 function dmci_preprocess_node(&$variables) {
-  GLOBAL $base_url;
+  global $base_url;
   $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
   $variables['theme_hook_suggestions'][] = "node__project";
 }
