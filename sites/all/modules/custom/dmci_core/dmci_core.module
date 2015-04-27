@@ -1,17 +1,19 @@
 <?php
+/**
+ * @file
+ * dmci_core.module
+ */
 
 /**
  * Implements hook_user_login().
- *
  */
 function dmci_core_user_login(&$edit, $account) {
-	 // $edit['redirect'] = "node/1";
-  $_GET['destination'] = 'node/1';
+  $edit['redirect'] = "node/1";
 }
 
+
 /**
- *	Implements hook_form_alter().
- *
+ * Implements hook_form_alter().
  */
 function dmci_form_user_login_alter(&$form, &$form_state, $form_id) {
   $allowed_type = array('textfield', 'password');
@@ -24,9 +26,55 @@ function dmci_form_user_login_alter(&$form, &$form_state, $form_id) {
   }
 }
 
+
 /**
- *	Implements hook_init().
- *
+ * Helper function to get the node title.
  */
- //function dmci_core_init() {
- //}
+function drupal_get_node_title($nid) {
+  $node = node_load($nid);
+  return $node->title;
+}
+
+
+/**
+ * Get the node id.
+ */
+function is_node() {
+  $page_node = menu_get_object();
+  if (isset($page_node->nid)) {
+    return $page_node->nid;
+  }
+}
+
+
+/**
+ * Helper function to get the Taxonomy vid.
+ */
+function drupal_get_taxonomy_vid($name, $machine_name) {
+  $vid = db_select('taxonomy_vocabulary', 'tv')
+    ->fields('tv', array('vid'))
+    ->condition('name', $name, '=')
+    ->condition('machine_name', $machine_name, '=')
+    ->execute()
+    ->fetchField();
+  return $vid;
+}
+
+
+/**
+ * Return node id's on nodequeue.
+ */
+function drupal_load_nodequeue_nids($qid) {
+  $nodequeue_object = nodequeue_load_nodes($sqid);
+  return $nodequeue_object;
+}
+
+
+/**
+ * Latest on Twitter block (embedded code from twitter).
+ */
+function _dmci_core_latest_on_twitter() {
+  $string = '<p>Sharing what the developers say on Twitter</p>';
+  $string .= '<a class="twitter-timeline" href="https://twitter.com/search?q=from%3Agamecrate" data-widget-id="533828898111234048" data-chrome="nofooter noheader" data-tweet-limit="2">Tweets about from:gamecrate</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>';
+  return $string;
+}

@@ -39,26 +39,8 @@
         <td>3 - Bedroom</td>
         <td>4 / 3 / 2014</td>
         <td>Zena Bumgardner</td>
-        <td class="pending" data-reveal-id="myModal" class="myModal"><a href="#">PENDING</a></td>
+        <td>SOLD</td>
       </tr>
     </tbody>
   </table>
-</div>
-
-<div id="myModal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <div class="large-12 columns units approval large-centered">
-    <div class="large-12 columns bldg">
-      <center> SELECT ACTION </center>
-    </div>
-    <select class="large-12 columns">
-      <option>APPROVED</option>
-      <option>DECLINED</option>
-      <option>DENIED</option>
-      <option>SOLD</option>
-    </select>
-
-    <button class="large-12 columns right close-approval"> DONE </button>
-    <div class="clear-both"></div>
-  </div>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
