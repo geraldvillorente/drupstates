@@ -8796,29 +8796,46 @@ article .button {
   opacity: .70;
 }
 
+@media screen and (max-width: 768px) {
+  /* line 1350, ../scss/_style.scss */
+  .units .header:nth-child(2),
+  .units .header:nth-child(3) {
+    display: none;
+  }
+
+  /* line 1354, ../scss/_style.scss */
+  .section-availability .units .header .right {
+    left: 0px;
+  }
+
+  /* line 1358, ../scss/_style.scss */
+  .section-availability .units .columns {
+    border: none !important;
+  }
+}
 /* media queries */
 @media screen and (max-width: 768px) {
-  /* line 1351, ../scss/_style.scss */
+  /* line 1366, ../scss/_style.scss */
   .selection-page .absolute-center {
     width: 45%;
     height: 90%;
   }
 
-  /* line 1357, ../scss/_style.scss */
+  /* line 1372, ../scss/_style.scss */
   .selection {
     padding: 0px !important;
     margin-top: 30px;
   }
 }
 @media screen and (max-width: 640px) {
-  /* line 1365, ../scss/_style.scss */
+  /* line 1380, ../scss/_style.scss */
   .selection-page .absolute-center {
     width: 50%;
     height: 80%;
   }
 }
 @media only screen and (min-width: 400px) {
-  /* line 1373, ../scss/_style.scss */
+  /* line 1388, ../scss/_style.scss */
   .masonry {
     -moz-column-count: 2;
     -webkit-column-count: 2;
@@ -8826,7 +8843,7 @@ article .button {
   }
 }
 @media only screen and (min-width: 700px) {
-  /* line 1381, ../scss/_style.scss */
+  /* line 1396, ../scss/_style.scss */
   .masonry {
     -moz-column-count: 3;
     -webkit-column-count: 3;
@@ -8834,7 +8851,7 @@ article .button {
   }
 }
 @media only screen and (min-width: 900px) {
-  /* line 1389, ../scss/_style.scss */
+  /* line 1404, ../scss/_style.scss */
   .masonry {
     -moz-column-count: 4;
     -webkit-column-count: 4;
@@ -8842,21 +8859,21 @@ article .button {
   }
 }
 @media only screen and (min-width: 1100px) {
-  /* line 1399, ../scss/_style.scss */
+  /* line 1414, ../scss/_style.scss */
   .property-selection .masonry {
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;
   }
 
-  /* line 1406, ../scss/_style.scss */
+  /* line 1421, ../scss/_style.scss */
   .masonry {
     -moz-column-count: 5;
     -webkit-column-count: 5;
     column-count: 5;
   }
 
-  /* line 1412, ../scss/_style.scss */
+  /* line 1427, ../scss/_style.scss */
   .info .masonry {
     -moz-column-count: 2;
     -webkit-column-count: 2;
@@ -8864,78 +8881,83 @@ article .button {
   }
 }
 @media only screen and (max-width: 768px) {
-  /* line 1420, ../scss/_style.scss */
+  /* line 1435, ../scss/_style.scss */
   .notification ul {
     width: 100%;
     padding-bottom: 90px;
   }
 
-  /* line 1425, ../scss/_style.scss */
+  /* line 1440, ../scss/_style.scss */
   .articles {
     overflow: visible !important;
   }
 
-  /* line 1429, ../scss/_style.scss */
+  /* line 1444, ../scss/_style.scss */
   article .button {
     position: relative !important;
     bottom: -15px !important;
   }
 
-  /* line 1434, ../scss/_style.scss */
+  /* line 1449, ../scss/_style.scss */
   .updates {
     padding-left: 18px !important;
   }
-  /* line 1437, ../scss/_style.scss */
+  /* line 1452, ../scss/_style.scss */
   .updates .title {
     font-size: 18px;
     text-align: center;
   }
 
-  /* line 1443, ../scss/_style.scss */
+  /* line 1458, ../scss/_style.scss */
   .letters {
     display: none;
   }
 
-  /* line 1447, ../scss/_style.scss */
+  /* line 1462, ../scss/_style.scss */
   .contact > .columns {
     margin: 5px 20px !important;
     width: 90%;
   }
 }
+/* line 1468, ../scss/_style.scss */
+.approval select {
+  padding: 10px;
+}
+
 @media only screen and (max-width: 900px) {
-  /* line 1454, ../scss/_style.scss */
+  /* line 1473, ../scss/_style.scss */
   .contact .large-8 {
     width: 70%;
   }
 
-  /* line 1458, ../scss/_style.scss */
+  /* line 1477, ../scss/_style.scss */
   .contact .large-4 {
     width: 30%;
   }
 
-  /* line 1462, ../scss/_style.scss */
+  /* line 1481, ../scss/_style.scss */
   .contact-container {
     overflow: visible;
     height: 100%;
   }
 
-  /* line 1467, ../scss/_style.scss */
+  /* line 1486, ../scss/_style.scss */
   .contacts .choice {
     margin-top: 0px;
     margin-left: 0px;
   }
 
-  /* line 1472, ../scss/_style.scss */
+  /* line 1491, ../scss/_style.scss */
   .contacts button.back {
     margin-top: 0px;
   }
 
-  /* line 1476, ../scss/_style.scss */
+  /* line 1495, ../scss/_style.scss */
   .contacts .contact-info {
     padding: 20px 0px;
   }
 
-  /* line 1480, ../scss/_style.scss */
+  /* line 1499, ../scss/_style.scss */
   .contact-info .profile-logo {
     position: relative !important;
     top: -10px;
@@ -8943,26 +8965,19 @@ article .button {
   }
 }
 @media only screen and (max-width: 1025px) {
-  /* line 1488, ../scss/_style.scss */
+  /* line 1507, ../scss/_style.scss */
   .dashboard-menu {
     display: none;
   }
 
-  /* line 1492, ../scss/_style.scss */
+  /* line 1511, ../scss/_style.scss */
   .Dashboard .st-pusher {
     padding-top: 50px;
   }
 }
 @media only screen and (min-width: 1280px) {
-  /* line 1498, ../scss/_style.scss */
+  /* line 1517, ../scss/_style.scss */
   .wrapper {
     width: 1260px;
   }
 }
-
-/* Bootstrap admin menu fixs */
-.logged-in #admin-toolbar ul.menu li a,
-.logged-in div#admin-toolbar.vertical div.admin-tab {
-  height: 26px;
-}
-
