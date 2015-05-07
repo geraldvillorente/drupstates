@@ -5,6 +5,7 @@
  */
 
 function dmci_core_menu_alter(&$items) {
+  $items['node']['access callback'] = FALSE;
   $items['reservation']['access arguments'] = array('allow reservation');
 }
 
