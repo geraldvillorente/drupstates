@@ -42,108 +42,116 @@
  */
 ?>
 <!DOCTYPE html ng-app="dmci">
-<!-- Sorry no IE7 support! -->
-<!-- @see http://foundation.zurb.com/docs/index.html#basicHTMLMarkup -->
+  <!-- Sorry no IE7 support! -->
+  <!-- @see http://foundation.zurb.com/docs/index.html#basicHTMLMarkup -->
 
-<!--[if IE 8]><html class="no-js lt-ie9" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>"> <!--<![endif]-->
-<head>
-  <?php print $head; ?>
-  <title><?php print $head_title; ?></title>
-  <?php print $styles; ?>
-  <?php print $scripts; ?>
-  <!--[if lt IE 9]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-   <![endif]-->
- </head>
- <body ng-controller="dmciController" "class="<?php print $classes. " ".$parent_page; ?>" <?php print $attributes;?>>
+  <!--[if IE 8]><html ng-app="dmci" class="no-js lt-ie9" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>"> <![endif]-->
+  <!--[if gt IE 8]><!--> <html ng-app="dmci" class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>"> <!--<![endif]-->
+  <head>
+    <?php print $head; ?>
+    <title><?php print $head_title; ?></title>
+    <?php print $styles; ?>
+    <?php print $scripts; ?>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+  </head>
+  <body class="<?php print $classes . ' ' . $parent_page; ?>" <?php print $attributes; ?>>
+    <!-- #st-container -->
+    <div id="st-container" class="st-container">
+      <div class="st-pusher">
+        <nav class="st-menu st-effect-3" id="menu-3">
+          <ul class="st-menu-ul">
+            <li class="li-title">
+              <span>Dashboard</span>
+              <ul>
+                <li><a class="icon" href="/home">Home</a></li>
+                <li><a class="icon" href="/news-1">News</a></li>
+                <li><a class="icon" href="/reservation-list">Reservation</a></li>
+                <li><a class="icon" href="/availability">Availability</a></li>
+                <li><a class="icon" href="/contacts">Contact</a></li>
+                <li><a class="icon" href="/profile">Profile</a></li>
+              </ul>
+            </li>
 
- <div id="st-container" class="st-container">
- <div class="st-pusher">
-  <nav class="st-menu st-effect-3" id="menu-3">
-    <ul class="st-menu-ul">
-      <li class="li-title">
-        <span>Dashboard</span>
-        <ul>
-          <li><a class="icon" href="/home">Home</a></li>
-          <li><a class="icon" href="/news">News</a></li>
-          <li><a class="icon" href="/reservation-list">Reservation</a></li>
-          <li><a class="icon" href="/availability">Availability</a></li>
-          <li><a class="icon" href="/contacts">Contact</a></li>
-          <li><a class="icon" href="/profile">Profile</a></li>
-        </ul>
-      </li>
+            <li class="li-title">
+              <span>Presentation</span>
+              <ul>
+                <li><a class="icon" href="/history">History</a></li>
+                <li><a class="icon" href="/property-selection">Property Selection</a></li>
+                <li><a class="icon" href="/reservation">Reservation</a></li>
+                <li><a class="icon" href="/bpc-form">BPC</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
 
-      <li class="li-title">
-        <span>Presentation</span>
-        <ul>
-          <li><a class="icon" href="/history">History</a></li>
-          <li><a class="icon" href="/property-selection">Property Selection</a></li>
-          <li><a class="icon" href="/reservation">Reservation</a></li>
-          <li><a class="icon" href="/bpc-form">BPC</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-
-  <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
-    <a href="<?php print url('node/1'); ?>"> <img src="<?php print $base_url_default_files . "dmci-icon.png"; ?>" class="right" /> </a>
-    <div class="top-bar-section">
-      <div id="st-trigger-effects" class="column">
-        <button data-effect="st-effect-3" class="hamburger left"> <li></li><li></li><li></li> </button>
-      </div>
-    </div>
-  </nav>
-
-  <?php if ($parent_page != "Dashboard"): ?>
-    <?php if (arg(1) != 1): ?>
-      <?php if (drupal_is_front_page() != 1): ?>
-        <div class="page-title-container">
-          <div class="parent-page"><b><?php print $parent_page; ?></b></div>
-          <div class="current-page">
-            <div class="b-container"><b><?php print $current_page; ?></b></div>
-            <img src="<?php print $base_url_default_files . "top-curve.png"; ?>" class="curve">
+        <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+          <a href="<?php print url('node/1'); ?>"> <img src="<?php print $base_url_default_files . "/dmci-icon.png"; ?>" class="right" /> </a>
+          <div class="top-bar-section">
+            <div id="st-trigger-effects" class="column">
+              <button data-effect="st-effect-3" class="hamburger left"> <li></li><li></li><li></li> </button>
+            </div>
           </div>
-        </div>
-      <?php endif; ?>
-    <?php endif; ?>
-  <?php else: ?>
-    <div class="dashboard-menu">
-      <ul>
-        <li id="home"> <a href="home"> Home </a> </li>
-        <li id="news"> <a href="news"> News </a> </li>
-        <li id="reservation"> <a href="reservation-list"> Reservation </a> </li>
-        <li id="availability"> <a href="availability"> Availability </a> </li>
-        <li id="contacts"> <a href="contacts"> Contacts </a> </li>
-        <li id="profile"> <a href="profile"> Profile </a> </li>
-        <div class="clear-both"></div>
-      </ul>
-      <div class="right profile-name">
-        <div class="name left"> Juan Dela Cruz <div> Marketing Manager </div> </div>
-        <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" />
-      </div>
-    </div>
-  <?php endif; ?>
-  <?php print $page_top; ?>
-  <?php print $page; ?>
-  <?php print $page_bottom; ?>
-  <?php print _zurb_foundation_add_reveals(); ?>
+        </nav>
 
-  <?php if ($parent_page == "Dashboard"): ?>
-    <div class="search-container">
-      <div class="search-overflow">
-        <div class="search"> <img src="<?php print $base_url_default_files . "search-icon.png"; ?>" /> </div>
-        <input type="text" placeholder="Search" class="form-search" />
-      </div>
-    </div>
-  <?php endif; ?>
+        <?php if ($parent_page != "Dashboard"): ?>
+          <?php if (arg(1) != 1): ?>
+            <?php if (drupal_is_front_page() != 1): ?>
+              <div class="page-title-container">
+                <div class="parent-page"><b><?php print $parent_page; ?></b></div>
+                <div class="current-page">
+                  <div class="b-container"><b><?php print $current_page; ?></b></div>
+                  <img src="<?php print $base_url_default_files . "top-curve.png"; ?>" class="curve">
+                </div>
+              </div>
+            <?php endif; ?>
+          <?php endif; ?>
+        <?php else: ?>
+          <div class="dashboard-menu">
+            <ul>
+              <li id="home"> <a href="home"> Home </a> </li>
+              <li id="news-1"> <a href="news-1"> News </a> </li>
+              <li id="reservation"> <a href="reservation-list"> Reservation </a> </li>
+              <li id="availability"> <a href="availability"> Availability </a> </li>
+              <li id="contacts"> <a href="contacts"> Contacts </a> </li>
+              <li id="profile"> <a href="profile"> Profile </a> </li>
+              <div class="clear-both"></div>
+            </ul>
+            <div class="right profile-name">
+              <div class="name left">
+                <?php print $name; ?>
+                <div> <?php print $position; ?> </div>
+              </div>
+              <?php if ($image): ?>
+                <img src="<?php print $image; ?>" />
+              <?php else: ?>
+                <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" />
+              <?php endif; ?>
+            </div>
+          </div>
+        <?php endif; ?>
+        <?php print $page_top; ?>
+        <?php print $page; ?>
+        <?php print $page_bottom; ?>
+        <?php print _zurb_foundation_add_reveals(); ?>
 
-  <script>
-    (function ($, Drupal, window, document, undefined) {
-      $(document).foundation();
-    })(jQuery, Drupal, this, this.document);
-  </script>
-  </div>
-</div>
-</body>
+        <?php if ($parent_page == "Dashboard"): ?>
+          <div class="search-container">
+            <div class="search-overflow">
+              <div class="search"> <img src="<?php print $base_url_default_files . "search-icon.png"; ?>" /> </div>
+              <input type="text" placeholder="Search" class="form-search" />
+            </div>
+          </div>
+        <?php endif; ?>
+
+        <script>
+          (function ($, Drupal, window, document, undefined) {
+            $(document).foundation();
+          })(jQuery, Drupal, this, this.document);
+        </script>
+      </div>
+    </div> <!-- /#st-container -->
+  </body>
 </html>

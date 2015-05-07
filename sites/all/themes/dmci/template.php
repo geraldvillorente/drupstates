@@ -6,101 +6,125 @@
 
 /**
  * Implements template_preprocess_html().
- *
  */
 function dmci_preprocess_html(&$variables) {
   global $base_url;
-  $menu_trail = menu_get_active_trail();
-  $parent_page = menu_link_load($menu_trail[1]['mlid']);
+  global $user;
+
+  // Get the user profile.
+  $uid = user_load($user->uid);
+  $profile_main = profile2_load_by_user($uid, 'main');
+  $variables['name'] = $profile_main->field_name[LANGUAGE_NONE][0]['value'];
+  $variables['position'] = $profile_main->field_position[LANGUAGE_NONE][0]['value'];
+  $image = $profile_main->field_image_profile[LANGUAGE_NONE][0]['uri'];
+  $variables['image'] = image_style_url('60x62', $image);
+
   $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
-  $variables['parent_page'] = $parent_page['link_title'];
-  $variables['current_page'] = $variables['head_title_array']['title'];
+
+  $menu_trail = menu_get_active_trail();
+  if (isset($menu_trail[1])) {
+    $parent_page = menu_link_load($menu_trail[1]['mlid']);
+    $variables['parent_page'] = $parent_page['link_title'];
+    $variables['current_page'] = $variables['head_title_array']['title'];
+  }
+  else {
+    $variables['parent_page'] = 'test';
+    $variables['current_page'] = 'test1';
+  }
 }
 
 
 /**
- * Implements template_preprocess_page
- *
+ * Implements template_preprocess_page().
  */
 function dmci_preprocess_page(&$variables) {
   global $base_url;
-  $nid = $variables['node']->nid;
+  global $user;
 
   $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
 
-  if ($nid == 1) {
-    $variables['theme_hook_suggestions'][] = "page__selection";
-    $variables['selections'] = array(
-      array(url('node/19', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
-      array(url('node/11', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
-    );
-  }
-  else if ($nid == 11) {
-    $variables['theme_hook_suggestions'][] = "page__company";
-  }
-  else if ($nid == 6) {
-    $variables['theme_hook_suggestions'][] = "page__property";
-  }
-  else if ($nid == 12) {
-    $variables['theme_hook_suggestions'][] = "page__bpc";
-  }
-  else if ($nid == 15) {
-    $block_reservationform = module_invoke('webform', 'block_view', 'client-block-15');
-    $variables['theme_hook_suggestions'][] = "page__reservation";
-    $variables['reservation_form'] = $block_reservationform['content'];
-  }
-  else if ($nid == 16) {
-    $variables['theme_hook_suggestions'][] = "page__bpc";
-    drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/accounting.js', array('scope' => 'footer'));
-  }
-  else if ($nid == 17) {
-    $variables['theme_hook_suggestions'][] = "page__thankyou";
-  }
-  else if ($nid == 19) {
-    $variables['theme_hook_suggestions'][] = "page__dashboard_news";
-  }
-  else if ($nid == 20) {
-    $variables['theme_hook_suggestions'][] = "page__dashboard_home";
-  }
-  else if ($nid == 21) {
-    $variables['theme_hook_suggestions'][] = "page__dashboard_contacts";
-  }
-  else if ($nid == 22) {
-    $variables['theme_hook_suggestions'][] = "page__dashboard_single_contact";
-  }
-  else if ($nid == 23) {
-    $variables['theme_hook_suggestions'][] = "page__dashboard_reservation";
-  }
-  else if ($nid == 24) {
-    $variables['theme_hook_suggestions'][] = "page__dashboard_profile";
-  }
-  else if ($nid == 25) {
-    $variables['theme_hook_suggestions'][] = "page__dashboard_availability_room";
-  }
-  else if ($nid == 26) {
-    $variables['theme_hook_suggestions'][] = "page__dashboard_availability";
+  // This condition is very important to avoid redirect loop.
+  if (user_is_anonymous()) {
+    // Get the login form.
+    $form = drupal_get_form("user_login");
+    $variables['login_form'] = drupal_render($form);
   }
 
+  if (isset($variables['node'])) {
+    $nid = $variables['node']->nid;
+
+    if ($nid == 1) {
+      $variables['theme_hook_suggestions'][] = "page__selection";
+      $variables['selections'] = array(
+        array(url('node/19', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
+        array(url('node/11', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
+      );
+    }
+    elseif ($nid == 11) {
+      $variables['theme_hook_suggestions'][] = "page__company";
+    }
+    elseif ($nid == 6) {
+      $variables['theme_hook_suggestions'][] = "page__property";
+    }
+    elseif ($nid == 12) {
+      $variables['theme_hook_suggestions'][] = "page__bpc";
+    }
+    elseif ($nid == 15) {
+      $block_reservationform = module_invoke('webform', 'block_view', 'client-block-15');
+      $variables['theme_hook_suggestions'][] = "page__reservation";
+      $variables['reservation_form'] = $block_reservationform['content'];
+    }
+    else if ($nid == 16) {
+      $variables['theme_hook_suggestions'][] = "page__bpc";
+      drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/accounting.js', array('scope' => 'footer'));
+    }
+    elseif ($nid == 17) {
+      $variables['theme_hook_suggestions'][] = "page__thankyou";
+    }
+    elseif ($nid == 19) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_news";
+    }
+    elseif ($nid == 20) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_home";
+    }
+    elseif ($nid == 21) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_contacts";
+    }
+    else if ($nid == 22) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_single_contact";
+    }
+    else if ($nid == 23) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_reservation";
+    }
+    else if ($nid == 24) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_profile";
+    }
+    elseif ($nid == 25) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_availability_room";
+    }
+    elseif ($nid == 26) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_availability";
+    }
+    else {
+      // Do nothing.
+    }
+  }
+
+  // Get the path of active theme.
   $theme = path_to_theme();
 
-  drupal_add_css($theme . '/css/swiper.min.css');
-  drupal_add_css($theme . '/css/screen.css');
-  drupal_add_css($theme . '/css/lightbox.css');
   drupal_add_js($theme . '/js/swiper.min.js', array('scope' => 'footer'));
   drupal_add_js($theme . '/js/lightbox.js', array('scope' => 'footer'));
   drupal_add_js($theme . '/js/index.js', array('scope' => 'footer'));
-  drupal_add_js($theme . '/js/foundation/foundation.topbar.js', array('scope' => 'footer'));
-  drupal_add_js($theme . '/js/foundation/foundation.reveal.js', array('scope' => 'footer'));
   drupal_add_js('(function($){ $(document).foundation(); })(jQuery)', array('type' => 'inline', 'scope' => 'footer'));
 
-  // Menu.
-  drupal_add_css($theme . '/css/component.css');
-  drupal_add_css($theme . '/css/icons.css');
-  drupal_add_css($theme . '/css/normalize.css');
-
+  // Add required javascript files.
   drupal_add_js($theme . '/js/classie.js', array('scope' => 'footer'));
   drupal_add_js($theme . '/js/modernizr.custom.js', array('scope' => 'footer'));
   drupal_add_js($theme . '/js/sidebarEffects.js', array('scope' => 'footer'));
+
+  // Bootstrap Angular driven pages.
+  drupal_add_js($theme . '/js/angular/angular.js', array('scope' => 'header'));
 }
 
 

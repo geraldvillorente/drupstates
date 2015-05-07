@@ -36,7 +36,6 @@ function taxonomy_alter_form_alter(&$form, $form_state, $form_id) {
       $form['language']['#default_value'] = 'en';
     }
     $form['#after_build'][] = '_taxonomy_alter_change_order_form_alter';
-    print 'Tessssssssssssssssssssssssssssss';
   }
 }
 
@@ -49,7 +48,7 @@ function taxonomy_alter_form_search_block_form_alter(&$form, &$form_state) {
 
 
 /**
- * Implements custom function _gamecrate_core_search_box_submit.
+ * Implements custom function _taxonomy_alter_search_box_submit.
  */
 function _taxonomy_alter_search_box_submit($form, &$form_state) {
   $form_id = $form['form_id']['#value'];
@@ -74,26 +73,39 @@ function _taxonomy_alter_change_order_form_alter($form_element, &$form_state) {
   }
 
   // Categorisation group.
-  $form_element['taxonomy']['#type'] = 'fieldset';
-  $form_element['taxonomy']['#title'] = t('Categorisation');
-  // Category.
   if (isset($form_element['field_category'])) {
-    $form_element['taxonomy']['field_category'] = $form_element['field_category'];
-    $form_element['taxonomy']['field_category']['#weight'] = 1;
-    $form_element['field_category'] = array('#language' => NULL);
+    $form_element['taxonomy']['#type'] = 'fieldset';
+    $form_element['taxonomy']['#title'] = t('Categorisation');
+    // Category.
+    if (isset($form_element['field_category'])) {
+      $form_element['taxonomy']['field_category'] = $form_element['field_category'];
+      $form_element['taxonomy']['field_category']['#weight'] = 1;
+      $form_element['field_category'] = array('#language' => NULL);
+    }
+    // Article format.
+    if (isset($form_element['field_format'])) {
+      $form_element['taxonomy']['field_format'] = $form_element['field_format'];
+      $form_element['taxonomy']['field_format']['#weight'] = 2;
+      $form_element['field_format'] = array('#language' => NULL);
+    }
+    // Tags.
+    if (isset($form_element['field_tags'])) {
+      $form_element['field_tags'][LANGUAGE_NONE]['#description'] = t('Enter tags in a comma separated list');
+      $form_element['taxonomy']['field_tags'] = $form_element['field_tags'];
+      $form_element['taxonomy']['field_tags']['#weight'] = 3;
+      $form_element['field_tags'] = array('#language' => NULL);
+    }
   }
-  // Article format.
-  if (isset($form_element['field_format'])) {
-    $form_element['taxonomy']['field_format'] = $form_element['field_format'];
-    $form_element['taxonomy']['field_format']['#weight'] = 2;
-    $form_element['field_format'] = array('#language' => NULL);
-  }
-  // Tags.
-  if (isset($form_element['field_tags'])) {
-    $form_element['field_tags'][LANGUAGE_NONE]['#description'] = t('Enter tags in a comma separated list');
-    $form_element['taxonomy']['field_tags'] = $form_element['field_tags'];
-    $form_element['taxonomy']['field_tags']['#weight'] = 3;
-    $form_element['field_tags'] = array('#language' => NULL);
+  else {
+    $form_element['taxonomy']['#type'] = 'fieldset';
+    $form_element['taxonomy']['#title'] = t('Meta Keywords');
+    // Tags.
+    if (isset($form_element['field_tags'])) {
+      $form_element['field_tags'][LANGUAGE_NONE]['#description'] = t('Enter tags in a comma separated list');
+      $form_element['taxonomy']['field_tags'] = $form_element['field_tags'];
+      $form_element['taxonomy']['field_tags']['#weight'] = 3;
+      $form_element['field_tags'] = array('#language' => NULL);
+    }
   }
 
   // Core fields.

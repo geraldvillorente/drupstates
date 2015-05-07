@@ -35,6 +35,16 @@ stylesheets[all][] = css/custom.css
 ; not exist or be blank in your subtheme. See https://drupal.org/node/263967
 stylesheets[all][] = css/foundation.min.css
 
+; DMCI custom styles.
+; For menu.
+stylesheets[all][] = css/component.css
+stylesheets[all][] = css/icons.css
+stylesheets[all][] = css/normalize.css
+; General purpose.
+stylesheets[all][] = css/swiper.min.css
+stylesheets[all][] = css/screen.css
+stylesheets[all][] = css/lightbox.css
+
 ; Foundation JavaScript.
 
 ; Modernizr acts as a shim for HTML5 elements for older browsers
@@ -59,10 +69,11 @@ scripts[] = js/foundation.min.js
 ;scripts[] = js/foundation/foundation.magellan.js
 ;scripts[] = js/foundation/foundation.orbit.js
 ;scripts[] = js/foundation/foundation.placeholder.js
-;scripts[] = js/foundation/foundation.reveal.js
 ;scripts[] = js/foundation/foundation.section.js
 ;scripts[] = js/foundation/foundation.tooltips.js
-;scripts[] = js/foundation/foundation.topbar.js
+
+scripts[] = js/foundation/foundation.reveal.js
+scripts[] = js/foundation/foundation.topbar.js
 
 ; Theme scripts.
 ; This file is empty, just uncomment this line and start editing!

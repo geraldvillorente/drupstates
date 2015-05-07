@@ -31,6 +31,14 @@
  * SETTINGS" for documentation.
  */
 /*! normalize.css v2.1.2 | MIT License | git.io/normalize */
+
+/* Bootstrap admin menu fix */
+#admin-toolbar ul.menu li a,
+#admin-toolbar .admin-tab,
+#admin-toolbar.vertical div.admin-tab {
+  height: 26px !important;
+}
+
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -8139,7 +8147,7 @@ body.logged-in {
   margin-left: 35px;
 }
 /* line 771, ../scss/_style.scss */
-.contacts button {
+.contacts a.button {
   padding: 10px 25px;
   color: #000;
   font-size: 12px;
@@ -8152,7 +8160,7 @@ body.logged-in {
   border: 2px solid #ccc;
 }
 /* line 784, ../scss/_style.scss */
-.contacts button.back {
+.contacts a.button.back {
   margin-top: 15px;
 }
 
@@ -8958,10 +8966,4 @@ article .button {
   .wrapper {
     width: 1260px;
   }
-}
-
-/* Bootstrap admin menu fix */
-.logged-in #admin-toolbar ul.menu li a,
-.logged-in div#admin-toolbar.vertical div.admin-tab {
-  height: 26px;
 }

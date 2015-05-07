@@ -2,31 +2,118 @@
 
   Drupal.behaviors.angular = {
     attach: function(context, settings) {
-      var news = angular.module('news', []);
+      var dmci = angular.module('dmci', []);
 
-      news.controller('appController', function($scope, $http, Poller) {
+      dmci.controller('newsPageController', function($scope, PollerNews) {
         // Response from service.
-        $scope.data = Poller.data ;
+        $scope.newsPage = PollerNews.data;
       });
 
-      // Run the Poller.
-      news.run(function(Poller) {});
-      // Create a poller that will create a request to
-      // the endpoint every 1000 ms.
-      news.factory('Poller', function($http, $timeout) {
+      dmci.controller('newsConsUpdateController', function($scope, PollerConsUpdate) {
+        // Response from service.
+        $scope.newsCons = PollerConsUpdate.data;
+      });
+
+      dmci.controller('newsLatestNewsController', function($scope, PollerLatestNews) {
+        // Response from service.
+        $scope.newsLatestNews = PollerLatestNews.data;
+      });
+
+      dmci.controller('userController', function($scope, PollerUser) {
+        // Response from service.
+        $scope.user = PollerUser.data;
+      });
+
+      // Run the news Poller.
+      dmci.run(function(PollerNews) {});
+
+      // Run the construction updates Poller.
+      dmci.run(function(PollerConsUpdate) {});
+
+      // Run the latest news Poller.
+      dmci.run(function(PollerLatestNews) {});
+
+      // Run the user Poller.
+      dmci.run(function(PollerUser) {});
+
+      // Create a poller for news that will create a request every 1000 ms.
+      dmci.factory('PollerNews', function($http, $timeout) {
         var data = {
           response: {},
           calls: 0
         };
 
-        var poller = function() {
+        var pollerNews = function() {
           $http.get('/data/page/news').then(function(r) {
             data.response = r.data;
             data.calls++;
-            $timeout(poller, 1000);
+            $timeout(pollerNews, 1000);
           });
         };
-        poller();
+        pollerNews();
+
+        return {
+          data: data
+        };
+      });
+
+      // Create a poller for construction update that will create a request every 1000 ms.
+      dmci.factory('PollerConsUpdate', function($http, $timeout) {
+        var data = {
+          response: {},
+          calls: 0
+        };
+
+        var pollerConsUpdate = function() {
+          $http.get('/data/block/construction-updates').then(function(r) {
+            data.response = r.data;
+            data.calls++;
+            $timeout(pollerConsUpdate, 1000);
+          });
+        };
+        pollerConsUpdate();
+
+        return {
+          data: data
+        };
+      });
+
+      // Create a poller for latest news that will create a request every 1000 ms.
+      dmci.factory('PollerLatestNews', function($http, $timeout) {
+        var data = {
+          response: {},
+          calls: 0
+        };
+
+        var pollerLatestNews = function() {
+          $http.get('/data/news/latest-news').then(function(r) {
+            data.response = r.data;
+            data.calls++;
+            $timeout(pollerLatestNews, 1000);
+          });
+        };
+        pollerLatestNews();
+
+        return {
+          data: data
+        };
+      });
+
+      // Create a poller for user that will create a request every 1000 ms.
+      dmci.factory('PollerUser', function($http, $timeout) {
+        var data = {
+          response: {},
+          calls: 0
+        };
+
+        var pollerUser = function() {
+          $http.get('/data/user').then(function(r) {
+            data.response = r.data;
+            data.calls++;
+            $timeout(pollerUser, 1000);
+          });
+        };
+        pollerUser();
 
         return {
           data: data

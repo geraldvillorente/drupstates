@@ -14,7 +14,7 @@
           <div class="large-6 columns copy">
             <ul>
               <div class="title">Rediscover the rhythm of life, and bring harmony back into your days, here at Rhapsody Residences</div>
-              <li> Carefully designed Neo-Asian architecture and luish lanscaping are a refreshing departure form tyhe steel and concrete structures that dominate the urabn panorama, providing a relaxing ambiance </li>
+              <li> Carefully designed Neo-Asian architecture and luish lanscaping are a refreshing departure form tyhe steel and concrete structures that dominate the urabn http://www.dmcihomes.com/levina-place?news-events-promospanorama, providing a relaxing ambiance </li>
             </ul>
 
             <ul>
