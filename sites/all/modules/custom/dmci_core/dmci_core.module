@@ -4,6 +4,19 @@
  * dmci_core.module
  */
 
+function dmci_core_menu_alter(&$items) {
+  $items['reservation']['access arguments'] = array('allow reservation');
+}
+
+function dmci_core_permission() {
+  return array(
+    'allow reservation' => array(
+      'title' => t('Allow reservation'),
+      'description' => t('Allow user to use reservation.'),
+    ),
+  );
+}
+
 /**
  * Implements hook_user_login().
  */
