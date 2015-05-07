@@ -56,6 +56,16 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script>
+      // When ready...
+      window.addEventListener("load",function() {
+        // Set a timeout...
+        setTimeout(function(){
+          // Hide the address bar!
+          window.scrollTo(0, 1);
+        }, 0);
+      });
+    </script>
   </head>
   <body class="<?php print $classes . ' ' . $parent_page; ?>" <?php print $attributes; ?>>
     <!-- #st-container -->
@@ -119,17 +129,19 @@
               <li id="profile"> <a href="profile"> Profile </a> </li>
               <div class="clear-both"></div>
             </ul>
-            <div class="right profile-name">
-              <div class="name left">
-                <?php print $name; ?>
-                <div> <?php print $position; ?> </div>
+            <?php if (!user_is_anonymous()): ?>
+              <div class="right profile-name">
+                <div class="name left">
+                  <?php print $name; ?>
+                  <div> <?php print $position; ?> </div>
+                </div>
+                <?php if ($image): ?>
+                  <img src="<?php print $image; ?>" />
+                <?php else: ?>
+                  <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" />
+                <?php endif; ?>
               </div>
-              <?php if ($image): ?>
-                <img src="<?php print $image; ?>" />
-              <?php else: ?>
-                <img src="<?php print $base_url_default_files . "unknown.jpg"; ?>" />
-              <?php endif; ?>
-            </div>
+            <?php endif; ?>
           </div>
         <?php endif; ?>
         <?php print $page_top; ?>
