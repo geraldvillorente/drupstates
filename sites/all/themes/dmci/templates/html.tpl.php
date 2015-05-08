@@ -78,10 +78,14 @@
               <ul>
                 <li><a class="icon" href="/home">Home</a></li>
                 <li><a class="icon" href="/news">News</a></li>
-                <li><a class="icon" href="/reservation-list">Reservation</a></li>
+                <?php if (!user_is_anonymous()): ?>
+                  <li><a class="icon" href="/reservation-list">Reservation</a></li>
+                <?php endif; ?>
                 <li><a class="icon" href="/availability">Availability</a></li>
                 <li><a class="icon" href="/contacts">Contact</a></li>
-                <li><a class="icon" href="/profile">Profile</a></li>
+                <?php if (!user_is_anonymous()): ?>
+                  <li><a class="icon" href="/profile">Profile</a></li>
+                <?php endif; ?>
               </ul>
             </li>
 
@@ -90,7 +94,9 @@
               <ul>
                 <li><a class="icon" href="/history">History</a></li>
                 <li><a class="icon" href="/property-selection">Property Selection</a></li>
-                <li><a class="icon" href="/reservation">Reservation</a></li>
+                <?php if (!user_is_anonymous()): ?>
+                  <li><a class="icon" href="/reservation">Reservation</a></li>
+                <?php endif; ?>
                 <li><a class="icon" href="/bpc-form">BPC</a></li>
               </ul>
             </li>
@@ -123,10 +129,14 @@
             <ul>
               <li id="home"> <a href="home"> Home </a> </li>
               <li id="news-1"> <a href="news"> News </a> </li>
-              <li id="reservation"> <a href="reservation-list"> Reservation </a> </li>
+              <?php if (!user_is_anonymous()): ?>
+                <li id="reservation"> <a href="reservation-list"> Reservation </a> </li>
+              <?php endif; ?>
               <li id="availability"> <a href="availability"> Availability </a> </li>
               <li id="contacts"> <a href="contacts"> Contacts </a> </li>
-              <li id="profile"> <a href="profile"> Profile </a> </li>
+              <?php if (!user_is_anonymous()): ?>
+                <li id="profile"> <a href="profile"> Profile </a> </li>
+              <?php endif; ?>
               <div class="clear-both"></div>
             </ul>
             <?php if (!user_is_anonymous()): ?>
