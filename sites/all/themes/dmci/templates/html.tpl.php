@@ -66,6 +66,21 @@
         }, 0);
       });
     </script>
+
+<style>
+li {
+  margin-bottom: 0px
+}
+.st-menu-ul li {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.reservation {
+  padding: 0px !important;
+}
+</style>
+
   </head>
   <body class="<?php print $classes . ' ' . $parent_page; ?>" <?php print $attributes; ?>>
     <!-- #st-container -->
