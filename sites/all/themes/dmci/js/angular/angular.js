@@ -24,6 +24,11 @@
         $scope.user = PollerUser.data;
       });
 
+      dmci.controller('reservationListController', function($scope, PollerReservationList) {
+        // Response from service.
+        $scope.reservationList = PollerReservationList.data;
+      });
+
       // Run the news Poller.
       dmci.run(function(PollerNews) {});
 
@@ -35,6 +40,9 @@
 
       // Run the user Poller.
       dmci.run(function(PollerUser) {});
+
+      // Run the reservation Poller.
+      dmci.run(function(PollerReservationList) {});
 
       // Create a poller for news that will create a request every 1000 ms.
       dmci.factory('PollerNews', function($http, $timeout) {
@@ -114,6 +122,27 @@
           });
         };
         pollerUser();
+
+        return {
+          data: data
+        };
+      });
+
+      // Create a poller for reservation that will create a request every 1000 ms.
+      dmci.factory('PollerReservationList', function($http, $timeout) {
+        var data = {
+          response: {},
+          calls: 0
+        };
+
+        var pollerReservationList = function() {
+          $http.get('/data/reservation').then(function(r) {
+            data.response = r.data;
+            data.calls++;
+            $timeout(pollerReservationList, 1000);
+          });
+        };
+        pollerReservationList();
 
         return {
           data: data
