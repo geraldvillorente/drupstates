@@ -5,156 +5,67 @@
       <div class="swiper-slide first-slide">
         <div class="info">
           <div class="large-6 columns">
-            <div class="fixed-item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 49%; height: 300px; background-size: cover"></div>
-            <div class="fixed-item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 49%; height: 300px; background-size: cover"></div>
-            <div class="fixed-item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 49%; height: 300px; background-size: cover"></div>
-            <div class="fixed-item" style="width: 49%; height: 300px;"> <img src="<?php print $base_url_default_files . "rhapsody-logo.jpg" ?>"> </div>
+            <?php foreach($content['field_front_slide_image']['#object']->field_front_slide_image['und'] as $image): ?>
+            <div class="fixed-item" style="background: url(<?php print file_create_url($image['uri']); ?>); width: 47%; height: 50%; background-size: cover"></div>
+            <?php endforeach; ?>
           </div>
 
           <div class="large-6 columns copy">
-            <ul>
-              <div class="title">Rediscover the rhythm of life, and bring harmony back into your days, here at Rhapsody Residences</div>
-              <li> Carefully designed Neo-Asian architecture and luish lanscaping are a refreshing departure form tyhe steel and concrete structures that dominate the urabn http://www.dmcihomes.com/levina-place?news-events-promospanorama, providing a relaxing ambiance </li>
-            </ul>
-
-            <ul>
-              <div class="title">District feature</div>
-              <li>Strategically located along the East Service Road, Rhapsody Residences is only 500 meters awat form the entry point if the Skyway, and more minutes away form the bustling business districts and commercial centers of Alabang and Makati.</li>
-              <li>The development feature elements of lanscaping and water that mimic the serenity of a Japansese garden</li>
-              <li>Proudly featuring one heactare of Neo-Asian themed amenities, your loved ones are sure to find their perfect spotwithin the development.</li>
-              <li>From 54 SQM up to 77 SQM offerings, each unit contains all the necessary areas that a growing family needs - a living and dining room, kitchen area, spacious bedrooms and a beautifully designed toilet and bath area with fixtures that complements your upgraded lifestyle.</li>
-              <li>Residents are ensured of space and a natural home-settingd even inside the building.</li>
-            </ul>
+            <?php print $content['field_front_slide_desc']['#object']->field_front_slide_desc['und'][0]['value']; ?>
           </div>
         </div>
       </div>
+
+      <?php foreach($content['field_other_slide']['#items'] as $key => $slide): ?>
+      <?php
+        $con = $content['field_other_slide'][$key]['entity']['field_collection_item'][$slide['value']];
+        $google_map = $con['field_google_map']['#object']->field_google_map['und'][0]['value'];
+        $image = $con['field_image']['#object']->field_image['und'];
+        $title = $con['field_title']['#object']->field_title['und'][0]['value'];
+        $first_column = $con['field_first_column']['#object']->field_first_column['und'][0]['value'];
+        $second_column = $con['field_second_column']['#object']->field_second_column['und'];
+        $third_column = $con['field_third_column']['#object']->field_third_column['und'][0]['value'];
+        $logo = $con['field_logo']['#object']->field_logo['und'][0]['uri'];
+      ?>
 
       <div class="swiper-slide">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61779.36708262926!2d121.05804382695315!3d14.587081178095216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sdmci!5e0!3m2!1sen!2sph!4v1425621662704" width="100%" height="300" frameborder="0" style="border:0"></iframe>
-        <div class="subtitle copy">
-          <center>
-            Carefully designed Neo-Asian architectureand lush landscaping are a refreshing departure from the stell-and-concrete structure that dominate the urban panorama
-          </center>
-        </div>
-
-        <div class="info">
-           <div class="large-5 columns copy paragraph">
-             <center><img src="<?php print $base_url_default_files . "rhapsody-logo.jpg"; ?>" class="project-logo" /></center>
-             At DMCI Homes, residents are ensuredof space and a natural home-seeting even inside the builidng, Verdant greenery and lanscape views are not confined merely to the amenities area; feel the cool, fresh breeze rushing through your building. courtesy of two of the finest features of a DMCI Homes builidng, the single-loaded corridors and graden atriums. These two features provide low-density living, a healthy quality of life, and peaceful rejuvenation for its residents.
-           </div>
-
-           <div class="large-3 columns image-set">
-             <a href="<?php print $base_url_default_files . "flair-1.jpg" ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print $base_url_default_files . "flair-1.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
-             <a href="<?php print $base_url_default_files . "flair-2.jpg" ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print $base_url_default_files . "flair-2.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
-             <a href="<?php print $base_url_default_files . "property-7.jpg" ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
-             <a href="<?php print $base_url_default_files . "property-3.jpg" ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
-           </div>
-
-           <div class="large-4 columns copy">
-            <b class="uppercase"> amenities </b>
-            <div class="drop-down"> Clubhouse Amenities </div>
-            <ul>
-              <li> Lounge Area </li>
-              <li> Function Hall </li>
-              <li> Fitness Gym </li>
-              <li> Game Room </li>
-              <li> Entertainment Room </li>
-              <li> Water Station </li>
-              <li> Laundry Station </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide" style="overflow: hidden;">
-        <div class="swiper-container2">
+      <?php if ($google_map != ""): ?>
+        <iframe src="<?php print $google_map; ?>" width="100%" height="300" frameborder="0" style="border:0"></iframe>
+      <?php else: ?>
+        <div class="swiper-container2" style="overflow: hidden;">
           <div class="swiper-wrapper" style="height: 300px;">
-            <div class="swiper-slide"> <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>) center center; width: 100%; height: 100%; background-size: cover"></div> </div>
-            <div class="swiper-slide"> <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>) center center; width: 100%; height: 100%; background-size: cover"></div> </div>
-            <div class="swiper-slide"> <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>) center center; width: 100%; height: 100%; background-size: cover"></div> </div>
+            <?php foreach($image as $img): ?>
+              <div class="swiper-slide"> <div class="item" style="background: url(<?php print file_create_url($img['uri']); ?>) center center; width: 100%; height: 100%; background-size: cover"></div> </div>
+            <?php endforeach; ?>
           </div>
           <div class="swiper-pagination2"></div>
         </div>
+       <?php endif; ?>
 
         <div class="subtitle copy">
           <center>
-            Ideally located along the East Service Road, Rhapsody Residences is mere minutes away from the commercial centers and business districts.
+            <?php print $title; ?>
           </center>
         </div>
 
         <div class="info">
            <div class="large-5 columns copy">
-             <center><img src="<?php print $base_url_default_files . "rhapsody-logo.jpg"; ?>" class="project-logo" /></center>
-             <p><div> How to get there? </div></p>
-             <ul>
-               <div> from Makati </div>
-               <li> Take the South Luzon Expressway south-boundroute. Upon reaching the Sucat interchange, bear left and enter the East Service Road. Proceed until you arrive at Rhapsody Residences, which is onthe left side of the lane. </li>
-             </ul>
-
-             <ul>
-               <div> from Alabang </div>
-               <li> Take the Alabang Zapote Road heading towars the South Luzon Expressway. Exit to the East Service Road-northbound land and drive straight until you reach Rhapsody Residences, which will be at the right side of the road. </li>
-             </ul>
+             <center><img src="<?php print file_create_url($logo); ?>" /></center>
+             <?php print $first_column; ?>
            </div>
 
-           <div class="large-3 columns">
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
+           <div class="large-3 columns image-set">
+             <?php foreach($second_column as $image): ?>
+               <a href="<?php print file_create_url($image['uri']); ?>" data-lightbox="example-set"> <div class="item" style="background: url(<?php print file_create_url($image['uri']); ?>); width: 45%; height: 125px; background-size: cover"></div> </a>
+             <?php endforeach; ?>
            </div>
 
            <div class="large-4 columns copy">
-
-            <b class="uppercase"> distances to key areas </b>
-            <div class="drop-down"> Commercial Establishments </div>
-            <ul>
-              <li> Alabang Town Center (Alabang): 8 Kms (25 mins) </li>
-              <li> Ferstival Supermall (Alabang): 5 km (12 mins) </li>
-              <li> SM (Muntinlupa): 7.48km (12 mins) </li>
-              <li> SM (Sucat): 2.71 km (11 mins) </li>
-              <li> S&amp;R Alabang: 4 km (12 mins) </li>
-              <li> Metropolis Mall: 3.3 km (12 mins) </li>
-            </ul>
+             <?php print $third_column; ?>
           </div>
         </div>
       </div>
-
-      <div class="swiper-slide">
-        <div class="swiper-slide"> <div class="item" style="background: url(<?php print $base_url_default_files . "tower.jpg" ?>) center center; width: 100%; height: 300px; background-size: cover"></div> </div>
-        <div class="subtitle copy">
-          <center>
-            Ideally located along the East Service Road, Rhapsody Residences is mere minutes away from the commercial centers and business districts.
-          </center>
-        </div>
-
-        <div class="info">
-           <div class="large-5 columns copy">
-             <center><img src="<?php print $base_url_default_files . "rhapsody-logo.jpg"; ?>" class="project-logo" /></center>
-             <p><div> How to get there? </div></p>
-             <ul>
-               <div> from Makati </div>
-               <li> Take the South Luzon Expressway south-boundroute. Upon reaching the Sucat interchange, bear left and enter the East Service Road. Proceed until you arrive at Rhapsody Residences, which is onthe left side of the lane. </li>
-             </ul>
-
-             <ul>
-               <div> from Alabang </div>
-               <li> Take the Alabang Zapote Road heading towars the South Luzon Expressway. Exit to the East Service Road-northbound land and drive straight until you reach Rhapsody Residences, which will be at the right side of the road. </li>
-             </ul>
-           </div>
-
-           <div class="large-3 columns">
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-8.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-2.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-7.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 45%; height: 125px; background-size: cover"></div>
-           </div>
-
-           <div class="large-4 columns copy">
-             <div class="item" style="background: url(<?php print $base_url_default_files . "property-3.jpg" ?>); width: 100%; height: 260px; background-size: cover"></div>
-          </div>
-        </div>
-      </div>
+      <?php endforeach; ?>
 
     </div>
   </div>

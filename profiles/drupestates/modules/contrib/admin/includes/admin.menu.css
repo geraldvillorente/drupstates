@@ -94,7 +94,7 @@ div#admin-toolbar.horizontal a.menu-hover span.menu-description {
 
   display:block;
   margin-left:25px;
-  height:15px;
+  /*height:15px;*/
   padding:5px 10px 4px;
   border-bottom:1px solid #222;
 

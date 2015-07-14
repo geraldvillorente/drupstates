@@ -35,6 +35,10 @@
 				classie.remove( container, 'st-menu-open' );
 			},
 			bodyClickFn = function(evt) {
+    // jQuery('.over').css({'height': 'auto'});
+    // jQuery('.front.logged-in .over').css({'height': '100%'});
+    jQuery('.st-pusher').css({'position': 'absolute'});
+
 				if( !hasParentClass( evt.target, 'st-menu' ) ) {
 					resetMenu();
 					document.removeEventListener( eventtype, bodyClickFn );
@@ -45,6 +49,10 @@
 			var effect = el.getAttribute( 'data-effect' );
 
 			el.addEventListener( eventtype, function( ev ) {
+    // jQuery('.Dashboard .over').css({'height': jQuery(window).height() - 170});
+    // jQuery('.over').css({'height': jQuery(window).height() - 260});
+    jQuery('.st-pusher').css({'position': 'fixed'});
+
 				ev.stopPropagation();
 				ev.preventDefault();
 				container.className = 'st-container'; // clear

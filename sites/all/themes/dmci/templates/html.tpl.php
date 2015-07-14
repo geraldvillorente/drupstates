@@ -49,7 +49,7 @@
   <!--[if gt IE 8]><!--> <html ng-app="dmci" class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>"> <!--<![endif]-->
   <head>
     <?php print $head; ?>
-    <title><?php print $head_title; ?></title>
+    <title><?php print $current_page; ?></title>
     <?php print $styles; ?>
     <?php print $scripts; ?>
     <!--[if lt IE 9]>
@@ -66,21 +66,6 @@
         }, 0);
       });
     </script>
-
-<style>
-li {
-  margin-bottom: 0px
-}
-.st-menu-ul li {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-.reservation {
-  padding: 0px !important;
-}
-</style>
-
   </head>
   <body class="<?php print $classes . ' ' . $parent_page; ?>" <?php print $attributes; ?>>
     <!-- #st-container -->
@@ -88,7 +73,7 @@ li {
       <div class="st-pusher">
         <nav class="st-menu st-effect-3" id="menu-3">
           <ul class="st-menu-ul">
-            <li class="li-title">
+            <li class="li-title sidemenu role<?php print array_search('sales', $user->roles); ?>">
               <span>Dashboard</span>
               <ul>
                 <li><a class="icon" href="/home">Home</a></li>
@@ -119,7 +104,7 @@ li {
         </nav>
 
         <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
-          <a href="<?php print url('node/1'); ?>"> <img src="<?php print $base_url_default_files . "/dmci-icon.png"; ?>" class="right" /> </a>
+          <a href="<?php print url('<front>'); ?>"> <img src="<?php print $base_url_default_files . "/dmci-icon.png"; ?>" class="right" /> </a>
           <div class="top-bar-section">
             <div id="st-trigger-effects" class="column">
               <button data-effect="st-effect-3" class="hamburger left"> <li></li><li></li><li></li> </button>
@@ -131,7 +116,7 @@ li {
           <?php if (arg(1) != 1): ?>
             <?php if (drupal_is_front_page() != 1): ?>
               <div class="page-title-container">
-                <div class="parent-page"><b><?php print $parent_page; ?></b></div>
+                <div class="parent-page"><b><?php print $parent_page; ?>&nbsp;</b></div>
                 <div class="current-page">
                   <div class="b-container"><b><?php print $current_page; ?></b></div>
                   <img src="<?php print $base_url_default_files . "top-curve.png"; ?>" class="curve">
@@ -169,10 +154,15 @@ li {
             <?php endif; ?>
           </div>
         <?php endif; ?>
-        <?php print $page_top; ?>
-        <?php print $page; ?>
-        <?php print $page_bottom; ?>
-        <?php print _zurb_foundation_add_reveals(); ?>
+
+        <div class="main-content">
+          <div class="over">
+            <?php print $page_top; ?>
+            <?php print $page; ?>
+            <?php print $page_bottom; ?>
+            <?php print _zurb_foundation_add_reveals(); ?>
+          </div>
+        </div>
 
         <?php if ($parent_page == "Dashboard"): ?>
           <div class="search-container">
@@ -190,5 +180,14 @@ li {
         </script>
       </div>
     </div> <!-- /#st-container -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-64117235-1', 'auto');
+    ga('send', 'pageview');
+  </script>
   </body>
 </html>

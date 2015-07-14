@@ -39,6 +39,17 @@ div#admin-toolbar span.admin-toggle { background:url(../images/sprite.png) 0px 0
  */
 div#admin-toolbar div.admin-tabs { background:#222 url(../images/bleeds.png) 0px 100% repeat-x; }
 
+/* Edit Here */
+.page-node div#admin-toolbar div.admin-tabs { width: 100% !important; }
+.page-node div#admin-toolbar div.admin-tab {
+  height: 25px;
+}
+.page-node .drilldown-active-menu,
+.page-node .menu {
+  width: 100% !important;
+}
+/* Edit Here End */
+
 div#admin-toolbar div.admin-tab {
   -moz-border-radius:5px;
   -moz-box-shadow: #333 0px 1px 0px;

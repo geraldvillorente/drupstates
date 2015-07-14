@@ -23,13 +23,17 @@ function dmci_preprocess_html(&$variables) {
 
   $menu_trail = menu_get_active_trail();
   if (isset($menu_trail[1])) {
-    $parent_page = menu_link_load($menu_trail[1]['mlid']);
-    $variables['parent_page'] = $parent_page['link_title'];
+    if ($menu_trail[1]['link_title'] == "My account") {
+      $variables['parent_page'] = "Dashboard";
+    } else {
+     $parent_page = menu_link_load($menu_trail[1]['mlid']);
+     $variables['parent_page'] = $parent_page['link_title'];
+    }
     $variables['current_page'] = $variables['head_title_array']['title'];
   }
   else {
-    $variables['parent_page'] = 'test';
-    $variables['current_page'] = 'test1';
+    $variables['parent_page'] = 'DMCI';
+    $variables['current_page'] = 'DMCI';
   }
 }
 
@@ -48,29 +52,45 @@ function dmci_preprocess_page(&$variables) {
     // Get the login form.
     $form = drupal_get_form("user_login");
     $variables['login_form'] = drupal_render($form);
+  } else if ($variables['page']['content']['system_main']['#entity_type'] == "user") {
+  } else {
+    // $variables['theme_hook_suggestions'][] = "page__selection";
+    // $variables['selections'] = array(
+    //   array(url('node/19', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
+    //   array(url('node/47', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
+    // );
   }
+
+  $variables['selections'] = array(
+    array(url('node/19', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
+    array(url('node/47', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
+  );
 
   if (isset($variables['node'])) {
     $nid = $variables['node']->nid;
 
-    if ($nid == 1) {
-      $variables['theme_hook_suggestions'][] = "page__selection";
-      $variables['selections'] = array(
-        array(url('node/19', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-dashboard-img.jpg"),
-        array(url('node/11', array('absolute' => TRUE)), $base_url . "/sites/default/files/" . "dmci-presentation-img.jpg")
-      );
-    }
-    elseif ($nid == 11) {
+    if ($nid == 47) {
       $variables['theme_hook_suggestions'][] = "page__company";
+      $url = $base_url . '/data/history';
+      $content = file_get_contents($url);
+      $variables['slideContent'] = json_decode($content);
+
+      $url2 = $base_url . '/data/history2';
+      $content2 = file_get_contents($url2);
+      $variables['slideContent2'] = json_decode($content2, TRUE);
+
+      $url3 = $base_url . '/data/history3';
+      $content3 = file_get_contents($url3);
+      $variables['slideContent3'] = json_decode($content3, TRUE);
     }
-    elseif ($nid == 6) {
+    else if ($nid == 6) {
       $variables['theme_hook_suggestions'][] = "page__property";
     }
-    elseif ($nid == 12) {
+    else if ($nid == 12) {
       $variables['theme_hook_suggestions'][] = "page__bpc";
     }
-    elseif ($nid == 15) {
-      $block_reservationform = module_invoke('webform', 'block_view', 'client-block-15');
+    else if ($nid == 113) {
+      $block_reservationform = module_invoke('webform', 'block_view', 'client-block-113');
       $variables['theme_hook_suggestions'][] = "page__reservation";
       $variables['reservation_form'] = $block_reservationform['content'];
     }
@@ -78,16 +98,16 @@ function dmci_preprocess_page(&$variables) {
       $variables['theme_hook_suggestions'][] = "page__bpc";
       drupal_add_js(drupal_get_path('theme', 'dmci') . '/js/accounting.js', array('scope' => 'footer'));
     }
-    elseif ($nid == 17) {
+    else if ($nid == 17) {
       $variables['theme_hook_suggestions'][] = "page__thankyou";
     }
-    elseif ($nid == 19) {
+    else if ($nid == 19) {
       $variables['theme_hook_suggestions'][] = "page__dashboard_news";
     }
-    elseif ($nid == 20) {
+    else if ($nid == 20) {
       $variables['theme_hook_suggestions'][] = "page__dashboard_home";
     }
-    elseif ($nid == 21) {
+    else if ($nid == 21) {
       $variables['theme_hook_suggestions'][] = "page__dashboard_contacts";
     }
     else if ($nid == 22) {
@@ -99,11 +119,21 @@ function dmci_preprocess_page(&$variables) {
     else if ($nid == 24) {
       $variables['theme_hook_suggestions'][] = "page__dashboard_profile";
     }
-    elseif ($nid == 25) {
+    else if ($nid == 25) {
       $variables['theme_hook_suggestions'][] = "page__dashboard_availability_room";
     }
-    elseif ($nid == 26) {
+    else if ($nid == 26) {
       $variables['theme_hook_suggestions'][] = "page__dashboard_availability";
+      $json = file_get_contents($base_url . '/data/project-availability');
+      $obj = json_decode($json, true);
+      $variables['projects'] = $obj;
+    }
+    else if ($nid == 123) {
+      $variables['theme_hook_suggestions'][] = "page__dashboard_single_reservation";
+
+      $url = $base_url . '/data/single-reservation/' . $_GET['id'];
+      $content = file_get_contents($url);
+      $variables['reservation'] = json_decode($content);
     }
     else {
       // Do nothing.
@@ -127,14 +157,13 @@ function dmci_preprocess_page(&$variables) {
   drupal_add_js($theme . '/js/angular/angular.js', array('scope' => 'header'));
 }
 
-
 /**
  * Implements template_preprocess_node().
  */
 function dmci_preprocess_node(&$variables) {
   global $base_url;
   $variables['base_url_default_files'] = $base_url . "/sites/default/files/";
-  $variables['theme_hook_suggestions'][] = "node__project";
+  // $variables['theme_hook_suggestions'][] = "node__project";
 }
 
 /**

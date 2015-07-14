@@ -1,7 +1,7 @@
 <div class="contacts row" ng-controller="userController">
   <div class="large-10 columns large-centered">
     <div class="contact-info" ng-repeat="profile in user.response track by profile.user.uid">
-      <img src="<?php print $logo; ?>" class="profile-logo">
+      <!-- <img src="<?php print $logo; ?>" class="profile-logo"> -->
       <div class="large-3 columns">
         <center>
           <img src="{{profile.user.image}}" />
