@@ -1,70 +1,48 @@
+<input type="hidden" id="hidden-availability" />
+
 <div class="swiper-container-3">
   <div class="swiper-wrapper">
-    <div class="swiper-slide" style="background: url(http://www.dmcihomes.com/dmcihomes.php?type=3&id=1406) center; background-size: cover">
-      <a href="#" data-reveal-id="myModal" class="myModal"></a>
-      <center class="logo"> <img src="http://www.dmcihomes.com/dmcihomes.php?type=0&id=24"> </center>
-    </div>
-    <div class="swiper-slide" style="background: url(http://www.dmcihomes.com/dmcihomes.php?type=3&id=1492) center; background-size: cover">
-      <center class="logo"> <img src="http://www.dmcihomes.com/dmcihomes.php?type=0&id=78"> </center>
-    </div>
-    <div class="swiper-slide" style="background: url(http://www.dmcihomes.com/dmcihomes.php?type=3&id=1331) center; background-size: cover">
-      <center class="logo"> <img src="http://www.dmcihomes.com/dmcihomes.php?type=0&id=77"> </center>
-    </div>
+    <?php foreach($projects['nodes'] as $project): ?>
+      <div class="swiper-slide" style="background: url(<?php print $project['node']['image']; ?>) center; background-size: cover">
+        <a href="#" data-reveal-id="myModal" class="myModal showAvailability" data-title="<?php print strtolower(str_replace(" ", "_", $project['node']['title'])); ?>"></a>
+        <center class="logo"> <?php print $project['node']['title']; ?> </center>
+      </div>
+    <?php endforeach; ?>
   </div>
 </div>
 
-<div id="myModal" class="reveal-modal medium" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <div class="large-12 columns units large-centered">
+<div id="myModal" class="reveal-modal x-large bldg" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog" ng-controller="availabilityController">
+<div class="row"><div class="left"><i><b>BUILDING UNIT</b></i></div></div>
+<center class="facing top"></center>
+  <div class="visual units">
 
-  <div class="large-12 columns bldg">
-    <center> BUILDING A </center>
+    <div class="floor-plan-layout">
+      <div class="clear-both"></div>
+      <p><center class="facing bottom"></center></p>
+      <div class="legend large-3 columns">
+        <div class="type one-br"><span class="color">&nbsp;</span><b>1 Bedroom</b></div>
+        <div class="type two-br"><span class="color">&nbsp;</span><b>2 Bedroom</b></div>
+        <div class="type three-br"><span class="color">&nbsp;</span><b>3 Bedroom</b></div>
+        <div class="type stairs"><span class="color">&nbsp;</span><b>Stairs</b></div>
+      </div>
+      <div class="large-6 text-center columns construction"></div>
+      <div class="large-3 columns">
+        <select id="select-floor">
+          <option value="1" selected> 1ST FLOOR </option>
+          <option value="2"> 2ND FLOOR </option>
+          <option value="3"> 3RD FLOOR </option>
+          <option value="4"> 4TH FLOOR </option>
+          <option value="5"> 5TH FLOOR </option>
+          <option value="6"> 6TH FLOOR </option>
+          <option value="7"> 7TH FLOOR </option>
+          <option value="8"> 8TH FLOOR </option>
+          <option value="9"> 9TH FLOOR </option>
+          <option value="10"> 10th FLOOR </option>
+          <option value="11"> 11th FLOOR </option>
+          <option value="12"> 12th FLOOR </option>
+        </select>
+      </div>
+    </div>
   </div>
-
-  <div class="large-4 columns header">
-    <div class="left"> UNIT </div>
-    <div class="right"> STATUS </div>
-  </div>
-
-  <div class="large-4 columns header">
-    <div class="left"> UNIT </div>
-    <div class="right"> STATUS </div>
-  </div>
-
-  <div class="large-4 columns header">
-    <div class="left"> UNIT </div>
-    <div class="right"> STATUS </div>
-  </div>
-
-  <div class="large-4 columns lft avbl">
-    <div class="unit left"> 101 </div>
-    <div class="stat right"> available </div>
-  </div>
-
-  <div class="large-4 columns mid rsvd">
-    <div class="unit left"> 102 </div>
-    <div class="stat right"> reserved </div>
-  </div>
-
-  <div class="large-4 columns rht sold">
-    <div class="unit left"> 103 </div>
-    <div class="stat right"> sold </div>
-  </div>
-
-  <div class="large-4 columns lft rsvd">
-    <div class="unit left"> 104 </div>
-    <div class="stat right"> reserved </div>
-  </div>
-
-  <div class="large-4 columns mid avbl">
-    <div class="unit left"> 105 </div>
-    <div class="stat right"> available </div>
-  </div>
-
-  <div class="large-4 columns rht sold">
-    <div class="unit left"> 106 </div>
-    <div class="stat right"> sold </div>
-  </div>
-  <div class="clear-both"></div>
-</div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>

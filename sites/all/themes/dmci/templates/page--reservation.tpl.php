@@ -1,3 +1,5 @@
+<input type="hidden" id="bpc-reservation" value="1">
+
 <div class="page-content">
   <div class="reservation">
     <div class="large-6 columns slider-map" style="overflow: hidden;">
@@ -39,3 +41,42 @@
     </div>
   </div>
 </div>
+
+<div id="myModalUnit" class="reveal-modal bldg" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <div class="visual">
+    <div class="row"><div class="left"><i><b>BUILDING UNIT</b></i></div></div>
+    <p><center class="facing top"></center></p>
+    <div class="floor-plan-layout">
+      <div class="clear-both"></div>
+      <p><center class="facing bottom"></center></p>
+      <div class="legend large-3 columns">
+        <div class="type one-br"><span class="color">&nbsp;</span><b>1 Bedroom</b></div>
+        <div class="type two-br"><span class="color">&nbsp;</span><b>2 Bedroom</b></div>
+        <div class="type three-br"><span class="color">&nbsp;</span><b>3 Bedroom</b></div>
+        <div class="type stairs"><span class="color">&nbsp;</span><b>Stairs</b></div>
+      </div>
+      <div class="large-6 text-center columns construction"></div>
+      <div class="large-3 columns">
+        <select id="select-floor">
+          <option value="1" selected> 1ST FLOOR </option>
+          <option value="2"> 2ND FLOOR </option>
+          <option value="3"> 3RD FLOOR </option>
+          <option value="4"> 4TH FLOOR </option>
+          <option value="5"> 5TH FLOOR </option>
+          <option value="6"> 6TH FLOOR </option>
+          <option value="7"> 7TH FLOOR </option>
+          <option value="8"> 8TH FLOOR </option>
+          <option value="9"> 9TH FLOOR </option>
+          <option value="10"> 10th FLOOR </option>
+          <option value="11"> 11th FLOOR </option>
+          <option value="12"> 12th FLOOR </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<input type="hidden" id="reserve_project" value="<?php echo $_POST['project_selected'] ?>">
+<input type="hidden" id="reserve_unit" value="<?php echo $_POST['unit_selected'] ?>">
+<input type="hidden" id="reserve_term" value="<?php echo $_POST['term_selected'] ?>">

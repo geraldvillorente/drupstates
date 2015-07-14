@@ -2,6 +2,10 @@
   Drupal.behaviors.dmci = {
     attach: function (context, settings) {
 
+      $('.close-approval').click(function() {
+        $('.approval').foundation('reveal', 'close');
+      })
+
       function compute_sheet(price, $this) {
         $('.calc').show();
         $('.important').show();
@@ -17,7 +21,7 @@
         var reg_discount = $this.val();
         var decimal_reg_discount = reg_discount / 100;
         var reg_discount_amount = price * decimal_reg_discount;
-        $('#calc-reg-discount-label').html(accounting.formatNumber(reg_discount, 2) + "%")
+        $('#calc-reg-discount-label').html(accounting.formatNumber(reg_discount, 2) + "%");
         $('#calc-reg-discount-amount').html(accounting.formatNumber(reg_discount_amount, 2));
 
         // Net.
@@ -27,7 +31,7 @@
         // PDC.
         var pdc_discount = 2;
         var decimal_pdc_discount = pdc_discount / 100;
-        var pdc_discount_amount = net * decimal_pdc_discount
+        var pdc_discount_amount = net * decimal_pdc_discount;
         $('#calc-pdc-discount-label').html(accounting.formatNumber(pdc_discount, 2) + "%");
         $('#calc-pdc-discount-amount').html(accounting.formatNumber(pdc_discount_amount, 2));
 
@@ -129,16 +133,17 @@
 
       // Get the active computation sheet.
       var active = $('.select-computation .active').data('select');
-      $('#unit-selected').data('reveal-id', 'myModal' + active);
+      $('#unit-selected').data('reveal-id', 'myModalUnit');
 
       // Change modal depending on computation sheet selected.
       $(document).on('click', '.select-computation .columns', function() {
+        $('.room').remove();
         $('.select-computation .columns').removeClass('active');
         $(this).addClass('active');
         active = $(this).data('select');
-        $('#unit-selected').data('reveal-id', 'myModal' + active);
+        $('#unit-selected').data('reveal-id', 'myModalUnit');
 
-        $('#select-bldg')[0].selectedIndex = 0;
+        $('#select-project')[0].selectedIndex = 0;
         $('#unit-selected').html("-- Select Unit--");
         $('#unit-area').html("");
         $('#select-term')[0].selectedIndex = 0;
@@ -148,7 +153,8 @@
       });
 
       // Select a Unit for unit, parking.
-      $('.bldg .available').click(function() {
+      var sel_unit = ""
+      $(document).on('click', '.bldg .available', function() {
         var type = $(this).data('type');
         var unit = $(this).data('unit');
         var facing = $(this).data('facing');
@@ -156,6 +162,11 @@
         var balcony = $(this).data('balcony');
         var unit_area = area + balcony;
         price = $(this).data('price');
+        sel_unit = unit;
+
+        if ($('#bpc-reservation').val() == 1) {
+          $('#edit-submitted-choose-unit').val("Unit " + unit);
+        }
 
         if (active == "Unit") {
           var unit_selected = type +" / "+ unit +" "+ facing;
@@ -164,10 +175,10 @@
         }
         else if (active == "Parking") {
           var unit_selected = unit +" "+ facing;
-          $('#unit-selected').html(unit_selected + " Number");
+          $('#unit-selected').html(unit_selected);
           $('#unit-area').html(unit_area + " sqm");
         }
-        $('#myModal'+active).foundation('reveal', 'close');
+        $('#myModalUnit').foundation('reveal', 'close');
 
         if ($this != null) {
           compute_sheet(price, $this);
@@ -196,6 +207,131 @@
         $(this).parents().eq(3).find('.available-units').hide();
         $('.visual').show();
       });
+
+      $.get('/data/project', function(data) {
+        var len = data.length;
+        for(var x=0; x<len; x++) {
+          var title = data[x].node.title.replace(" ", "_");
+          $('#select-project').append("<option value="+ title.toLowerCase() +">" + data[x].node.title + "</option>");
+        }
+      });
+
+      function get_project(project, floor, select) {
+        if (select == "Unit" || select == null) {
+          $.get('/data/project-units/' + project + "/" + floor, function(data) {
+            var len = data.nodes.length;
+            for(var x=0; x<len; x++) {
+              var unit_type = "";
+              var img = "/sites/all/themes/dmci/images/layout.png"
+              if (data.nodes[x].node.type == "3 Bedrooms") {
+                unit_type = "three-br";
+              } else if (data.nodes[x].node.type == "2 Bedrooms") {
+                unit_type = "two-br";
+              } else if (data.nodes[x].node.type == "1 Bedrooms") {
+                unit_type = "one-br";
+              } else {
+                unit_type = "stairs";
+                img = "";
+              }
+              $('.floor-plan-layout').prepend('<div class="room '+ unit_type +' '+ data.nodes[x].node.status +' tile" data-type="'+ data.nodes[x].node.type +'" data-unit="'+ data.nodes[x].node.number +'" data-facing="Facing Amenities" data-area="'+ data.nodes[x].node.area +'" data-balcony="'+ data.nodes[x].node.balcony +'" data-price="'+ data.nodes[x].node.price +'"><span>'+ data.nodes[x].node.number +'</span><img src="'+ img +'"><div class="stat2">'+ data.nodes[x].node.status +'</div></div>')
+            }
+          })
+        } else {
+          $.get('/data/project-parking/' + project + "_parking/" + floor, function(data) {
+            var len = data.nodes.length;
+            for(var x=0; x<len; x++) {
+              $('.floor-plan-layout').prepend('<div class="room parking '+ data.nodes[x].node.status +' tile" data-unit="'+ data.nodes[x].node.number +'" data-facing="Facing Amenities" data-area="'+ data.nodes[x].node.area +'" data-balcony="0" data-price="'+ data.nodes[x].node.price +'"><span>'+ data.nodes[x].node.number +'</span></div>')
+            }
+          })
+        }
+      }
+
+      $('#select-project, #edit-submitted-property-interested-in').on('change',function() {
+        if ($(this).context.id == "edit-submitted-property-interested-in") {
+          var select = "Unit";
+        } else {
+          var select = $('.select-computation .active').data('select');
+        }
+
+        $('.room').remove();
+        var project = $(this).val();
+        var floor = $('#select-floor').val();
+        get_project(project, floor, select);
+
+        $.get('/data/bpc-information/' + $("#select-project option:selected, #edit-submitted-property-interested-in option:selected").text(), function(data) {
+          $('.facing.top').text(data[0].top);
+          $('.facing.bottom').text(data[0].bottom);
+          $('.construction').text(data[0].construction);
+        });
+      });
+
+      $('#select-floor').on('change',function() {
+        if ($(this).context.id == "edit-submitted-property-interested-in") {
+          var select = "Unit";
+        } else {
+          var select = $('.select-computation .active').data('select');
+        }
+
+        $('.room').remove();
+        var project = $('#select-project, #edit-submitted-property-interested-in, #hidden-availability').val();
+        var floor = $('#select-floor').val();
+        get_project(project, floor, select);
+      })
+
+      $(document).on('change', '#edit-submitted-property-interested-in', function() {
+        var project_machine_name = $(this).val();
+        var options = $('#edit-submitted-choose-unit option[value]');
+        var options_length = options.length;
+
+        options.each(function(index) {
+          $(this).hide();
+          var each_option = $(this).val();
+          if (each_option.indexOf(project_machine_name) != -1) {
+            $(this).show();
+          }
+        })
+      })
+
+      $(document).on('click', '.showAvailability', function() {
+        $('#hidden-availability').val($(this).data('title'));
+        $('.room').remove();
+        $.get('/data/project-units/' + $(this).data('title') + "/all", function(data) {
+          for(var x=0; x<data.nodes.length; x++) {
+            var unit_type = "";
+            var img = "/sites/all/themes/dmci/images/layout.png"
+            if (data.nodes[x].node.type == "3 Bedrooms") {
+              unit_type = "three-br";
+            } else if (data.nodes[x].node.type == "2 Bedrooms") {
+              unit_type = "two-br";
+            } else if (data.nodes[x].node.type == "1 Bedrooms") {
+              unit_type = "one-br";
+            } else {
+              unit_type = "stairs";
+              img = "";
+            }
+            $('.section-availability .x-large .units').prepend('<div class="room '+ unit_type +' '+ data.nodes[x].node.status +' tile" data-type="'+ data.nodes[x].node.type +'" data-unit="'+ data.nodes[x].node.number +'" data-facing="Facing Amenities" data-area="'+ data.nodes[x].node.area +'" data-balcony="'+ data.nodes[x].node.balcony +'" data-price="'+ data.nodes[x].node.price +'"><span>'+ data.nodes[x].node.number +'</span><img src="'+ img +'"><div class="stat2">'+ data.nodes[x].node.status +'</div></div>')
+          }
+        })
+
+        $.get('/data/bpc-information/' + $(this).parent().find('.logo').text().trim(), function(data) {
+          $('.facing.top').text(data[0].top);
+          $('.facing.bottom').text(data[0].bottom);
+          $('.construction').text(data[0].construction);
+        });
+      })
+
+      $(document).on('click', '.webform-component--choose-unit', function() {
+        $('#myModalUnit').foundation('reveal', 'open');
+      })
+
+      $('.go-reserve').click(function() {
+        $('#unit-selected-2').val(sel_unit);
+      })
+
+      $('#edit-submitted-property-interested-in').val($('#reserve_project').val());
+      $('#edit-submitted-choose-unit').val("Unit " + $('#reserve_unit').val());
+      $('#edit-submitted-terms').val($('#reserve_term').val());
+
     }
   };
 })(jQuery, Drupal);

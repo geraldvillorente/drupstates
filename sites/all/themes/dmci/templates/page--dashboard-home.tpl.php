@@ -1,11 +1,7 @@
-<div class="large-4 columns notification">
+<div class="large-4 columns notification" ng-controller="updatesController">
   <div class="title"> Updates </div>
   <ul>
-    <li> Jeff has approved your request for reservation of unit 208 @ Bldg 2, Lumiere Residences for Mrs. Maria Elena. </li>
-    <li> San Luis has denied your request for reservation of unit 301 @ Bldg 2, Lumiere Residences for Mr. Francis Bonayon. </li>
-    <li> Unit 208, Unit 301, Unit 597 @ Bldg 2, Lumiere Residences has been sold on March 31, 2014. </li>
-    <li> Jeff has approved your request for reservation of unit 531 @ Bldg 2, Lumiere Residences for Mrs. Maria Magdalena. </li>
-    <li> Faith has approved your request for reservation of unit 208 @ Bldg 2, Lumiere Residences for Mrs. Maria Elena. </li>
+    <li ng-repeat="list in updates.response"> {{list.text}} </li>
     <a href="#" class="button right"> Read More </a>
   </ul>
 </div>
